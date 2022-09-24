@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="heading">
+		<h1>Create Something Amazing</h1>
+	</div>
+
+	<div class="prompt-section">
+		<h3>Text Prompt</h3>
+		<p class="hint">Describe what you want the AI to create</p>
+
+		<div class="form-group">
+			<label for="prompt" class="label">Your text prompt</label>
+			<input type="text" id="prompt" class="form-control" placeholder="E.g. Tropical beach" [formControl]="prompt">
+		</div>
+
+		<button class="btn btn-primary" (click)="onCreate()" [disabled]="prompt.invalid">Create</button>
+	</div>
+
+	<div class="output-container" *ngIf="prediction">
+		<div class="progress">
+			<div *ngIf="!['succeeded', 'failed'].includes(prediction.status)">loading...</div>
+			<span style="margin-top: 1rem;" [class.success]="prediction.status === 'succeeded'">{{ prediction.status }}</span>
+		</div>
+
+		<img class="output-image" *ngIf="prediction.output" [src]="prediction.output[prediction.output.length - 1]" alt="Output">
+	</div>
+</div>

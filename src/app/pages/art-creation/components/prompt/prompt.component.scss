@@ -1,0 +1,54 @@
+.container {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+
+	.heading {
+		margin: 4rem 0;
+		text-align: center;
+	}
+
+	.prompt-section {
+		width: 40%;
+
+		.hint {
+			margin: 4px 0px 0px;
+			font-size: 1.4rem
+		}
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		margin-top: 1rem;
+
+		.label {
+			margin-bottom: 5px;
+			font-weight: 600;
+			color: rgb(37, 43, 48);
+		}
+
+		.form-control {
+			padding: 1rem 1.8rem;
+			font-size: 1.6rem;
+			font-family: 'Open Sans', sans-serif;
+		}
+	}
+
+	.btn {
+		width: 100%;
+		background-color: var(--color-primary);
+		color: #fff;
+		padding: 1.4rem 0.66rem;
+		margin-top: 3rem;
+		font-size: 1.6rem;
+		text-transform: uppercase;
+		letter-spacing: .02rem;
+		font-family: 'Open Sans', sans-serif;
+
+		&:hover {
+			opacity: 0.8;
+			cursor: pointer;
+		}
+	}
+}

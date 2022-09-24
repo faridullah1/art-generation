@@ -1,6 +1,46 @@
 .container {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+
 	.heading {
 		margin: 4rem 0;
 		text-align: center;
+	}
+
+	.choose-model {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		width: 50%;
+	}
+
+	.card {
+		width: 20rem;
+		max-width: 20rem;
+
+		padding: 3rem 6rem;
+		margin: 0 2rem 2rem 0;
+		background: #fff;
+		box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+		cursor: pointer;
+		position: relative;
+	}
+
+	.model-category {
+		font-weight: 600;
+	}
+
+	.model-type {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: #0c7ec1;
+		color: #fff;
+		font-weight: 600;
+		padding: 0 0.5rem;
+		font-size: 1rem;
 	}
 }
