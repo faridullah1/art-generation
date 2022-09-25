@@ -2,4 +2,61 @@
 	<div class="heading">
 		<h1>All creations</h1>
 	</div>
+
+	<div class="creations">
+		<div class="actions">
+			<div class="left">
+				<div class="layout">
+					<button mat-icon-button (click)="onLayoutChange('List')">
+						<mat-icon>reorder</mat-icon>
+					</button>
+
+					<button mat-icon-button (click)="onLayoutChange('Grid')">
+						<mat-icon>grid_view</mat-icon>
+					</button>
+				</div>
+	
+				<div class="ml-3">
+					<span class="label">Filter:</span>
+					<select>
+						<option value="default">Default</option>
+						<option value="archived">Archived</option>
+						<option value="published">Published</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="right">
+				<div>
+					<button mat-icon-button (click)="getAllCreations()">
+						<mat-icon>refresh</mat-icon>
+					</button>
+
+					<button mat-icon-button>
+						<mat-icon>more_vert</mat-icon>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<ng-container *ngFor="let creation of creations">
+			<div class="card" *ngIf="creation.output">
+				<div class="detail">
+					<div class="model-actions">
+						<button class="action publish">
+							<mat-icon style="margin-right: .5rem">navigation</mat-icon>
+							Publish
+						</button>
+					</div>
+
+					<div class="model-info">
+						<h3> <a>{{ creation.input.text }}</a></h3>
+						<div class="created-at">Created At: {{ creation.created_at | date:'shortDate' }}</div>
+					</div>
+				</div>
+
+				<img [src]="creation.output[creation.output.length - 1]" alt="Creation" class="image">
+			</div>
+		</ng-container>
+	</div>
 </div>

@@ -1,6 +1,92 @@
 .container {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+
 	.heading {
 		margin: 4rem 0;
 		text-align: center;
+	}
+
+	.creations {
+		margin: 0 auto;
+		padding-top: 0;
+		padding-bottom: 0;
+		width: 94%;
+		max-width: 901px;
+		margin-bottom: 1rem;
+
+		.actions {
+			margin: 1.6rem 0px .8rem;
+			border-bottom: 1px solid rgb(242, 242, 242);
+			padding-bottom: 4px;
+			display: flex;
+			justify-content: space-between;
+			gap: 8px;
+
+			.left {
+				display: flex;
+				align-items: center;
+			}
+
+			.label {
+				margin-right: 1rem;
+				font-size: 1.2rem;
+			}
+		}
+
+		.icon {
+			margin-right: 1rem;
+			cursor: pointer;
+		}
+
+		.card {
+			margin-bottom: 16px;
+			background: rgb(255, 255, 255);
+			box-shadow: rgb(0 0 0 / 10%) 0px 3px 12px;
+
+			display: flex;
+
+			.detail {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				padding: 3.2rem;
+				flex: 1 0 30rem;
+				
+				.created-at {
+					font-size: 1.2rem;
+					color: #6c7176;
+					margin-bottom: 1.8rem;
+				}
+
+				.model-actions {
+					margin-bottom: 2rem;
+
+					.publish {
+						color: var(--color-secondary);
+						font-weight: 600;
+						font-size: 1.4rem;
+						cursor: pointer;
+
+						background: none;
+						border: none;
+
+						display: flex;
+						align-items: center;
+
+						mat-icon {
+							transform: rotate(90deg);
+						}
+					}
+				}
+			}
+
+			.image {
+				height: 400px;
+				max-width: 400px;
+			}
+		}
 	}
 }

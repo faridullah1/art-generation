@@ -1,3 +1,5 @@
+export type LayoutType = 'Grid' | 'List';
+
 export interface ArtModel {
 	name: string;
 	title: string;

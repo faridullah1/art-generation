@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ArtCreationModule } from './pages/art-creation/art-creation.module';
 import { LayoutModule } from './pages/layout/layout.module';
 import { FeedComponent } from './pages/art-creation/components/feed/feed.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FeedComponent } from './pages/art-creation/components/feed/feed.compone
 	imports: [
 		// Core modules
 		BrowserModule,
+		BrowserAnimationsModule,
 		HttpClientModule,
 		AppRoutingModule,
 

@@ -20,6 +20,10 @@ export class ApiService {
 		return this.http.post<Prediction>(this.baseUrl, body);
 	}
 
+	get(): Observable<any> {
+		return this.http.get<any>(this.baseUrl);
+	}
+
 	setPrediction(id: string): Observable<Prediction> {
 		return this.http.get<Prediction>(this.baseUrl + `/${id}`);
 	}

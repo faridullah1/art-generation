@@ -6,6 +6,7 @@ import { ArtCreationComponent } from './main.component';
 import { CreateComponent } from './components/create/create.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PromptComponent } from './components/prompt/prompt.component';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { PromptComponent } from './components/prompt/prompt.component';
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
+
+		MaterialModule
 	]
 })
 export class ArtCreationModule { }
