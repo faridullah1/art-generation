@@ -3,7 +3,7 @@
 		<h1>All creations</h1>
 	</div>
 
-	<div class="creations">
+	<div class="creations" *ngIf="!loading; else loader">
 		<div class="actions">
 			<div class="left">
 				<div class="layout">
@@ -59,4 +59,8 @@
 			</div>
 		</ng-container>
 	</div>
+
+	<ng-template #loader>
+		<mat-spinner diameter="30"></mat-spinner>
+	</ng-template>
 </div>

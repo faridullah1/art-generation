@@ -11,6 +11,7 @@ import { LayoutType } from '../models';
 export class ArtCreationComponent implements OnInit {
 	creations: any[] = [];
 	layout: LayoutType = 'List';
+	loading = false;
 
 	constructor(private apiService: ApiService) { }
 
@@ -19,11 +20,14 @@ export class ArtCreationComponent implements OnInit {
 	}
 
 	getAllCreations(): void {
+		this.loading = true;
+
 		this.apiService.get().subscribe({
 			next: (resp) => {
-				console.log(resp);
+				this.creations = resp.data;
+				this.loading = false;
 			},
-			error: (error) => console.log(error)
+			error: () => this.loading = false
 		});
 	}
 

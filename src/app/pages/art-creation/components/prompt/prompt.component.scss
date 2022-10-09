@@ -51,4 +51,26 @@
 			cursor: pointer;
 		}
 	}
+
+	.output-container {
+		margin-top: 2rem;
+		display: flex;
+		flex-direction: column;
+
+		.progress {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.success {
+			font-size: 1.5rem;
+			color: #6cc66c;
+			font-weight: 500;
+		}
+
+		.output-image {
+			margin-top: 2rem;
+		}
+	}
 }

@@ -17,7 +17,7 @@
 
 	<div class="output-container" *ngIf="prediction">
 		<div class="progress">
-			<div *ngIf="!['succeeded', 'failed'].includes(prediction.status)">loading...</div>
+			<mat-spinner *ngIf="!['succeeded', 'failed'].includes(prediction.status)" diameter="30"></mat-spinner>
 			<span style="margin-top: 1rem;" [class.success]="prediction.status === 'succeeded'">{{ prediction.status }}</span>
 		</div>
 

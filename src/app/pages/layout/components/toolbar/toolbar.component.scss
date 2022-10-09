@@ -26,11 +26,14 @@
 		}
 
 		.btn-create {
-			padding: 1em 3rem;
+			padding: .7em 3rem;
 			background-color: var(--color-secondary);
 			color: #fff;
-			opacity: .8;
 			font-weight: 600;
+
+			&:hover {
+				opacity: .8;
+			}
 		}
 
 		.avatar {
