@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseURL: '/v1/predictions',
+  baseURL: '/v1',
 };
 
 /*

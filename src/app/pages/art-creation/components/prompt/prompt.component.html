@@ -12,7 +12,15 @@
 			<input type="text" id="prompt" class="form-control" placeholder="E.g. Tropical beach" [formControl]="prompt">
 		</div>
 
-		<button class="btn btn-primary" (click)="onCreate()" [disabled]="prompt.invalid">Create</button>
+		<button class="btn btn-primary d-flex justify-center" (click)="onCreate()" [disabled]="prompt.invalid || disableCreateBtn">
+			<span *ngIf="!disableCreateBtn">Create</span>
+
+			<mat-progress-spinner
+				*ngIf="disableCreateBtn"
+				[diameter]="24"
+				[mode]="'indeterminate'">
+			</mat-progress-spinner>
+		</button>
 	</div>
 
 	<div class="output-container" *ngIf="prediction">

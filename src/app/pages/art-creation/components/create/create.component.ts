@@ -37,6 +37,6 @@ export class CreateComponent implements OnInit {
 	}
 
 	onModelSelect(m: ArtModel): void {
-		this.router.navigateByUrl('/login')
+		this.router.navigate(['/create/', m.type])
 	}
 }

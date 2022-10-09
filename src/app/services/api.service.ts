@@ -13,15 +13,13 @@ export class ApiService {
 
   	constructor(private http: HttpClient) {}
 
-	post(prompt: string): Observable<Prediction> {
-		const body = {
-			input: { text: prompt, grid_size: 1 },
-		}
-		return this.http.post<Prediction>(this.baseUrl, body);
+	post(slug: string, payload: any): Observable<Prediction> {
+		console.log(this.baseUrl + slug);
+		return this.http.post<Prediction>(this.baseUrl + slug, payload);
 	}
 
-	get(): Observable<any> {
-		return this.http.get<any>(this.baseUrl);
+	get(slug: string): Observable<any> {
+		return this.http.get<any>(this.baseUrl + slug);
 	}
 
 	setPrediction(id: string): Observable<Prediction> {

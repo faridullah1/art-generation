@@ -13,9 +13,8 @@ const routes: Routes = [
 	{ path: 'my-creations', component: ArtCreationComponent },
 	{ path: 'feed', component: FeedComponent },
 	{ path: 'create', component: CreateComponent },
+	{ path: 'create/:prompt', component: PromptComponent },
 	{ path: 'explore', component: ExploreComponent },
-	{ path: 'prompt', component: PromptComponent },
-
 	{ path: 'login', component: LoginComponent },
 ];
 
