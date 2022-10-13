@@ -9,11 +9,13 @@
 	}
 
 	.creations {
-		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		
 		padding-top: 0;
 		padding-bottom: 0;
-		width: 94%;
-		max-width: 901px;
 		margin-bottom: 1rem;
 
 		.actions {
@@ -22,7 +24,7 @@
 			padding-bottom: 4px;
 			display: flex;
 			justify-content: space-between;
-			gap: 8px;
+			width: 901px;
 
 			.left {
 				display: flex;
@@ -32,6 +34,10 @@
 			.label {
 				margin-right: 1rem;
 				font-size: 1.2rem;
+			}
+
+			.selected {
+				color: var(--color-secondary);
 			}
 		}
 
@@ -46,6 +52,7 @@
 			box-shadow: rgb(0 0 0 / 10%) 0px 3px 12px;
 
 			display: flex;
+			width: 100%;
 
 			.detail {
 				display: flex;
@@ -88,5 +95,31 @@
 				max-width: 400px;
 			}
 		}
+
+		.grid-view {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			
+			.grid-card {
+				width: 25rem;
+				height: auto;
+				margin-right: 2rem;
+	
+				.image {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.grid-container {
+		width: 94%;
+		max-width: 1400px;
+	}
+
+	.list-container {
+		width: 94%;
+		max-width: 901px;
 	}
 }

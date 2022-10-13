@@ -32,6 +32,6 @@ export class ArtCreationComponent implements OnInit {
 	}
 
 	onLayoutChange(layout: LayoutType): void {
-
+		this.layout = layout;
 	}
 }

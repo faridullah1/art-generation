@@ -1,17 +1,17 @@
 <div class="container">
 	<div class="heading">
-		<h1>All creations</h1>
+		<h1>My creations</h1>
 	</div>
 
-	<div class="creations" *ngIf="!loading; else loader">
+	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'" *ngIf="!loading; else loader">
 		<div class="actions">
 			<div class="left">
 				<div class="layout">
-					<button mat-icon-button (click)="onLayoutChange('List')">
+					<button [class.selected]="layout === 'List'" mat-icon-button (click)="onLayoutChange('List')">
 						<mat-icon>reorder</mat-icon>
 					</button>
 
-					<button mat-icon-button (click)="onLayoutChange('Grid')">
+					<button [class.selected]="layout === 'Grid'" mat-icon-button (click)="onLayoutChange('Grid')">
 						<mat-icon>grid_view</mat-icon>
 					</button>
 				</div>
@@ -39,25 +39,35 @@
 			</div>
 		</div>
 
-		<ng-container *ngFor="let creation of creations">
-			<div class="card" *ngIf="creation.output">
-				<div class="detail">
-					<div class="model-actions">
-						<button class="action publish">
-							<mat-icon style="margin-right: .5rem">navigation</mat-icon>
-							Publish
-						</button>
+		<ng-container *ngIf="layout === 'List'; else gridView;">
+			<ng-container *ngFor="let creation of creations">
+				<div class="card" *ngIf="creation.output">
+					<div class="detail">
+						<div class="model-actions">
+							<button class="action publish">
+								<mat-icon style="margin-right: .5rem">navigation</mat-icon>
+								Publish
+							</button>
+						</div>
+	
+						<div class="model-info">
+							<h3> <a>{{ creation.input.text }}</a></h3>
+							<div class="created-at">Created At: {{ creation.createdAt | date:'shortDate' }}</div>
+						</div>
 					</div>
-
-					<div class="model-info">
-						<h3> <a>{{ creation.input.text }}</a></h3>
-						<div class="created-at">Created At: {{ creation.createdAt | date:'shortDate' }}</div>
-					</div>
+	
+					<img [src]="creation.output[creation.output.length - 1]" alt="Creation" class="image">
 				</div>
-
-				<img [src]="creation.output[creation.output.length - 1]" alt="Creation" class="image">
-			</div>
+			</ng-container>
 		</ng-container>
+		
+		<ng-template #gridView>
+			<div class="grid-view">
+				<div class="grid-card" *ngFor="let creation of creations">
+					<img [src]="creation.output[creation.output.length - 1]" alt="Creation" class="image">
+				</div>
+			</div>
+		</ng-template>
 	</div>
 
 	<ng-template #loader>
