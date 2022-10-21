@@ -22,9 +22,9 @@ export class ArtCreationComponent implements OnInit {
 	getAllCreations(): void {
 		this.loading = true;
 
-		this.apiService.get('/predictions').subscribe({
+		this.apiService.get('/creations').subscribe({
 			next: (resp) => {
-				this.creations = resp.data;
+				this.creations = resp.data.creations;
 				this.loading = false;
 			},
 			error: () => this.loading = false

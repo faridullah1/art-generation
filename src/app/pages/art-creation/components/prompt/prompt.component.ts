@@ -34,7 +34,7 @@ export class PromptComponent implements OnInit {
 
 		console.log(payload);
 
-		this.apiService.post('/predictions', payload).subscribe({
+		this.apiService.post('/creations', payload).subscribe({
 			next: (resp: any) => {
 				this.router.navigateByUrl('/my-creations');
 			}
