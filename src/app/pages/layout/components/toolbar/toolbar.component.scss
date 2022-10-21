@@ -8,6 +8,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: relative;
 
 	.nav {
 		ul {
@@ -46,5 +47,47 @@
 
 	.active {
 		color: #fff !important;
+	}
+
+	.profile-menu {
+		position: absolute;
+		background: #fff;
+		box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px;
+		right: 2rem;
+		top: 5rem;
+
+		padding: 1.2rem 0;
+
+		ul {
+			list-style: none;
+
+			li {
+				display: block;
+				padding: 4px 20px;
+				max-width: 25rem;
+				width: 11.8rem;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				text-decoration: none;
+				color: black;
+
+				&:hover {
+					color: var(--color-secondary);
+					cursor: pointer;
+				}
+			}
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			right: 8px;
+			top: -10px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: transparent transparent rgb(255, 255, 255);
+			border-image: initial;
+		}
 	}
 }

@@ -7,4 +7,25 @@
 		margin: 4rem 0;
 		text-align: center;
 	}
+
+	.btn {
+		max-width: 34rem;
+    	margin: 0px auto 4px;
+	}
+
+	.btn-login {
+		border: 1px solid rgb(201, 65, 48);
+		line-height: normal;
+		cursor: pointer;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+		transition: all 0.3s ease 0s;
+		padding: 1em 0.66em;
+		font-size: 13px;
+		width: 100%;
+		background: rgb(201, 65, 48);
+		color: rgb(255, 255, 255);
+		text-decoration: none !important;
+	}
 }

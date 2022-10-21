@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService, UserProfile } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-toolbar',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+	profile!: UserProfile;
+	isLoggedIn: boolean = false;
+	toggleProfileMenu = false;
 
-  constructor() { }
+	constructor(private authService: AuthService, 
+				private router: Router)
+	{ }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+		this.authService.loadUserProfile();
 
+		this.authService.userProfileSubject.subscribe(profile => {
+			this.profile = profile;
+			this.isLoggedIn = this.authService.isLoggedIn;
+		});
+	}
+
+	onLogin(): void {
+		this.toggleProfileMenu = false;
+		this.isLoggedIn ? this.authService.logout() : this.router.navigateByUrl('login');
+	}
 }
