@@ -1,5 +1,281 @@
 <div class="container">
 	<div class="heading">
-		<h1>Explore other creators work</h1>
+		<h1 class="title">Explore other creators work</h1>
+		<div class="description">Browse the best AI generated artworks created with NightCafe</div>
+	</div>
+
+	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'">
+		<div class="actions">
+			<div class="left">
+				<div class="layout">
+					<button [class.selected]="layout === 'List'" mat-icon-button (click)="onLayoutChange('List')">
+						<mat-icon>reorder</mat-icon>
+					</button>
+
+					<button [class.selected]="layout === 'Grid'" mat-icon-button (click)="onLayoutChange('Grid')">
+						<mat-icon>grid_view</mat-icon>
+					</button>
+				</div>
+	
+				<div class="ml-3">
+					<span class="label">Filter:</span>
+					<select>
+						<option value="default">Default</option>
+						<option value="archived">Archived</option>
+						<option value="published">Published</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="right">
+				<div>
+					<button mat-icon-button >
+						<mat-icon>refresh</mat-icon>
+					</button>
+
+					<button mat-icon-button>
+						<mat-icon>more_vert</mat-icon>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<ng-container *ngIf="!loading; else loader">
+			<ng-container *ngIf="layout === 'List'; else gridView;">
+				<ng-container >
+					<div class="card" >
+						<div class="detail-header">
+							<div class="user">
+									<img src="./assets/images/moai.webp" alt="Creation" class="user-img">
+									<div class="user-details">
+										<div class="name">
+											<span class="name-desc">Ahsan</span>
+											<span class="name-tag">@ahsan</span>
+										</div>
+										<div class="time">An Hour Ago</div>
+									</div>
+							</div>
+		
+							<div class="model-info">
+								<div class="follow">Follow</div>
+							</div>
+						</div>
+		
+						<img src="./assets/images/village.webp" alt="Creation" class="image">
+
+						<div class="description">
+							<div class="like">
+								<div class="favourite">
+									<mat-icon>favorite_border</mat-icon>
+									<span>30</span>
+								</div>
+
+								<div class="share">
+									<mat-icon>share</mat-icon>
+									<span>Share</span>
+								</div>
+								
+							</div>
+							<h3 class="desc-title">Sauron</h3>
+							<div class="acts-bar">
+
+								<div class="acts">
+									<mat-icon>refresh</mat-icon>
+									<span>4</span>
+								</div>
+
+								<div class="acts">
+									<mat-icon>image</mat-icon>
+									<span>Thumb</span>
+								</div>
+								
+								<div class="acts">
+									<mat-icon>fullscreen_exit</mat-icon>
+									<span>4</span>
+								</div>		
+							</div>
+
+							<div class="comments">
+								<div class="comments-name">Ali ahmad</div>
+								<div class="comments-desc">well done</div>
+							</div>
+							<div class="read-all">Read all Captions</div>
+							<div class="write-comment">
+								<img src="./assets/images/avatar.jpg" alt="" class="user-img">
+									<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
+									
+							</div>
+
+							<div class="submit-sec">
+								<div class="submit">Submit</div>
+								<div class="community">comunity guidlines</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card" >
+						<div class="detail-header">
+							<div class="user">
+									<img src="./assets/images/moai.webp" alt="Creation" class="user-img">
+									<div class="user-details">
+										<div class="name">
+											<span class="name-desc">Ahsan</span>
+											<span class="name-tag">@ahsan</span>
+										</div>
+										<div class="time">An Hour Ago</div>
+									</div>
+							</div>
+		
+							<div class="model-info">
+								<div class="follow">Follow</div>
+							</div>
+						</div>
+		
+						<img src="./assets/images/village.webp" alt="Creation" class="image">
+
+						<div class="description">
+							<div class="like">
+								<div class="favourite">
+									<mat-icon>favorite_border</mat-icon>
+									<span>30</span>
+								</div>
+
+								<div class="share">
+									<mat-icon>share</mat-icon>
+									<span>Share</span>
+								</div>
+								
+							</div>
+							<h3 class="desc-title">Sauron</h3>
+							<div class="acts-bar">
+
+								<div class="acts">
+									<mat-icon>refresh</mat-icon>
+									<span>4</span>
+								</div>
+
+								<div class="acts">
+									<mat-icon>image</mat-icon>
+									<span>Thumb</span>
+								</div>
+								
+								<div class="acts">
+									<mat-icon>fullscreen_exit</mat-icon>
+									<span>4</span>
+								</div>		
+							</div>
+
+							<div class="comments">
+								<div class="comments-name">Ali ahmad</div>
+								<div class="comments-desc">well done</div>
+							</div>
+							<div class="read-all">Read all Captions</div>
+							<div class="write-comment">
+								<img src="./assets/images/avatar.jpg" alt="" class="user-img">
+									<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
+									
+							</div>
+
+							<div class="submit-sec">
+								<div class="submit">Submit</div>
+								<div class="community">comunity guidlines</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card" >
+						<div class="detail-header">
+							<div class="user">
+									<img src="./assets/images/moai.webp" alt="Creation" class="user-img">
+									<div class="user-details">
+										<div class="name">
+											<span class="name-desc">Ahsan</span>
+											<span class="name-tag">@ahsan</span>
+										</div>
+										<div class="time">An Hour Ago</div>
+									</div>
+							</div>
+		
+							<div class="model-info">
+								<div class="follow">Follow</div>
+							</div>
+						</div>
+		
+						<img src="./assets/images/village.webp" alt="Creation" class="image">
+
+						<div class="description">
+							<div class="like">
+								<div class="favourite">
+									<mat-icon>favorite_border</mat-icon>
+									<span>30</span>
+								</div>
+
+								<div class="share">
+									<mat-icon>share</mat-icon>
+									<span>Share</span>
+								</div>
+								
+							</div>
+							<h3 class="desc-title">Sauron</h3>
+							<div class="acts-bar">
+
+								<div class="acts">
+									<mat-icon>refresh</mat-icon>
+									<span>4</span>
+								</div>
+
+								<div class="acts">
+									<mat-icon>image</mat-icon>
+									<span>Thumb</span>
+								</div>
+								
+								<div class="acts">
+									<mat-icon>fullscreen_exit</mat-icon>
+									<span>4</span>
+								</div>		
+							</div>
+
+							<div class="comments">
+								<div class="comments-name">Ali ahmad</div>
+								<div class="comments-desc">well done</div>
+							</div>
+							<div class="read-all">Read all Captions</div>
+							<div class="write-comment">
+								<img src="./assets/images/avatar.jpg" alt="" class="user-img">
+									<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
+									
+							</div>
+
+							<div class="submit-sec">
+								<div class="submit">Submit</div>
+								<div class="community">comunity guidlines</div>
+							</div>
+						</div>
+					</div>
+				
+				</ng-container>
+			</ng-container>
+			
+			<ng-template #gridView>
+				<div class="grid-view">
+					<div class="grid-card" >
+						<img src="./assets/images/village.webp" alt="Creation" class="image">
+					</div>
+					<div class="grid-card" >
+						<img src="./assets/images/village.webp" alt="Creation" class="image">
+					</div>
+					<div class="grid-card" >
+						<img src="./assets/images/village.webp" alt="Creation" class="image">
+					</div>
+					
+				</div>
+			</ng-template>
+		</ng-container>
+
+
+
+		<ng-template #loader>
+			<mat-spinner diameter="30"></mat-spinner>
+		</ng-template>
 	</div>
 </div>
