@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LayoutType } from 'src/app/pages/models';
 
 
 @Component({
@@ -8,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
+  creations: any[] = [];
+	layout: LayoutType = 'List';
+	loading = false;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onLayoutChange(layout: LayoutType): void {
+		this.layout = layout;
+	}
 }

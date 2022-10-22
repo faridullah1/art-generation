@@ -19,7 +19,6 @@ export function authAppInitializerFactory(authService: AuthService): () => Promi
 @NgModule({
 	declarations: [
 		AppComponent,
-  		FeedComponent
 	],
 	imports: [
 		// Core modules
