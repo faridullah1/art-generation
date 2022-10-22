@@ -61,7 +61,21 @@
 
 				padding: 3.2rem;
 				flex: 1 0 30rem;
+				position: relative;
 				
+				.label {
+					position: absolute;
+					top: 0;
+					left: 0;
+
+					padding: 4px 6px;
+					color: rgb(255, 255, 255);
+					text-transform: uppercase;
+					font-weight: 600;
+					font-size: 11px;
+					background: rgb(10, 128, 19);
+				}
+
 				.created-at {
 					font-size: 1.2rem;
 					color: #6c7176;
@@ -86,6 +100,10 @@
 						mat-icon {
 							transform: rotate(90deg);
 						}
+
+						&:hover {
+							color: rgb(108, 113, 118);
+						}
 					}
 				}
 			}
@@ -109,6 +127,28 @@
 	
 				.image {
 					width: 100%;
+				}
+			}
+		}
+
+		.no-record {
+			text-align: center;
+			margin: 2rem auto 5rem;
+
+			.text {
+				margin-bottom: 2.4rem;
+			}
+
+			.btn-create {
+				padding: 1.5rem 3rem;
+				border: 1px solid var(--color-secondary);
+				background-color: var(--color-secondary);
+				color: #fff;
+				font-weight: 600;
+	
+				&:hover {
+					opacity: .8;
+					cursor: pointer;
 				}
 			}
 		}

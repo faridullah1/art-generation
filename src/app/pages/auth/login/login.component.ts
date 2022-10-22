@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -7,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-	constructor(private router: Router) { }
+export class LoginComponent {
+	constructor(private authService: AuthService) { }
 
-	ngOnInit(): void {
-	}
-
-	onLogin(): void {
-		this.router.navigateByUrl('/prompt');
+	loginUsingGoogle(): void {
+		this.authService.login();
 	}
 }

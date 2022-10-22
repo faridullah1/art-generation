@@ -1,5 +1,5 @@
 <header class="toolbar">
-	NightCafeClone
+	<span routerLink="/" class="pointer">NightCafeClone</span>
 
 	<nav class="nav">
 		<ul>
@@ -10,8 +10,17 @@
 				<a class="btn-create">Create</a>
 			</li>
 			<li>
-				<img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
+				<div class="d-flex align-center" (click)="toggleProfileMenu = !toggleProfileMenu">
+					<img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
+					<div *ngIf="profile" class="ml-3">{{ profile.info?.name}}</div>
+				</div>
 			</li>
 		</ul>
 	</nav>
+
+	<div class="profile-menu" *ngIf="toggleProfileMenu">
+		<ul>
+			<li (click)="onLogin()">{{ isLoggedIn ? 'Log out' : 'Login' }}</li>
+		</ul>
+	</div>
 </header>

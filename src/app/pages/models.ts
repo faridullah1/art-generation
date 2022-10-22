@@ -21,3 +21,24 @@ export interface Prediction {
     output: string[];
     error: string;
 }
+
+export interface Creation {
+	creationId: number;
+	prompt: string;
+	modelType: string;
+	outputImage: string;
+	isPublished: boolean;
+	status: 'Default' | 'Published' | 'Archived';
+	description: string;
+	likes: number;
+	createdAt: string;
+}
+
+export interface UserProfile {
+	info?: {
+		sub: string;
+		email: string;
+		name: string;
+		picture: string;
+	}
+}
