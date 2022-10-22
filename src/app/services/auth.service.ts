@@ -1,17 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
-import { BehaviorSubject, combineLatest, filter, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, filter, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
-export interface UserProfile {
-	info?: {
-		sub: string;
-		email: string;
-		name: string;
-		picture: string;
-	}
-}
+import { UserProfile } from '../pages/models';
+import { ApiService } from './api.service';
 
 export const config: AuthConfig = {
 	clientId: environment.clientId,
@@ -38,7 +31,9 @@ export class AuthService {
 		this.isDoneLoading$
     ]).pipe(map(values => values.every(b => b)));
 
-	constructor(private readonly oauthService: OAuthService, private router: Router) 
+	constructor(private readonly oauthService: OAuthService, 
+				private router: Router,
+				private apiService: ApiService) 
 	{
 		this.init();
 	}
@@ -75,7 +70,7 @@ export class AuthService {
 
 		this.oauthService.events
 			.pipe(filter(e => ['token_received'].includes(e.type)))
-			.subscribe(e => this.loadUserProfile());
+			.subscribe(() => this.saveUser());
 
 		this.oauthService.events
 			.pipe(filter(e => ['session_terminated', 'session_error'].includes(e.type)))
@@ -109,21 +104,27 @@ export class AuthService {
 			});
 		}
 	}
-	
-	login(): void {
-		this.oauthService.initLoginFlow();
-	}
-
-	get isLoggedIn(): boolean {
-		return this.oauthService.hasValidAccessToken();
-	}
 
 	getToken(): string {
 		return this.oauthService.getIdToken();
 	}
 
+	saveUser(): void {
+		this.apiService.post('/users', {}).subscribe({
+			next: () => console.log('user created')
+		});
+	}
+
+	login(): void {
+		this.oauthService.initLoginFlow();
+	}
+
 	logout(): void {
 		this.oauthService.logOut();
 		location.reload();
+	}
+
+	get isLoggedIn(): boolean {
+		return this.oauthService.hasValidAccessToken();
 	}
 }

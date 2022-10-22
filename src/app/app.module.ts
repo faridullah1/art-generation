@@ -10,7 +10,7 @@ import { FeedComponent } from './pages/art-creation/components/feed/feed.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AuthService } from './services/auth.service';
-import { DefaultOAuthInterceptor } from './token-interceptor';
+import { DefaultOAuthInterceptor } from './interceptors/token-interceptor';
 
 export function authAppInitializerFactory(authService: AuthService): () => Promise<void> {
 	return () => authService.runInitialLoginSequence();
@@ -31,7 +31,7 @@ export function authAppInitializerFactory(authService: AuthService): () => Promi
 		// 3rd party modules
 		OAuthModule.forRoot({
 			resourceServer: {
-				allowedUrls: ['localhost:3000'],
+				allowedUrls: ['http://localhost:3000/api'],
 				sendAccessToken: true
 			}
 		}),

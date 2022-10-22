@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { LayoutType } from '../models';
+import { Creation, LayoutType } from '../models';
 
 
 @Component({
@@ -9,11 +11,13 @@ import { LayoutType } from '../models';
   styleUrls: ['./main.component.scss']
 })
 export class ArtCreationComponent implements OnInit {
-	creations: any[] = [];
+	creations: Creation[] = [];
 	layout: LayoutType = 'List';
 	loading = false;
+	statusFC = new FormControl('Default');
+	statuses = ['Default', 'Published', 'Archived'];
 
-	constructor(private apiService: ApiService) { }
+	constructor(private apiService: ApiService, private router: Router) { }
 
 	ngOnInit(): void {
 		this.getAllCreations();
@@ -22,7 +26,7 @@ export class ArtCreationComponent implements OnInit {
 	getAllCreations(): void {
 		this.loading = true;
 
-		this.apiService.get('/creations').subscribe({
+		this.apiService.get(`/creations?status=${this.statusFC.value}`).subscribe({
 			next: (resp) => {
 				this.creations = resp.data.creations;
 				this.loading = false;
@@ -33,5 +37,20 @@ export class ArtCreationComponent implements OnInit {
 
 	onLayoutChange(layout: LayoutType): void {
 		this.layout = layout;
+	}
+
+	onPublishCreation(creation: Creation): void {
+		const payload = {
+			creationId: creation.creationId,
+			description: 'Testing publishing'
+		};
+
+		this.apiService.post('/creations/publish', payload).subscribe({
+			next: (resp: any) => creation.isPublished = resp.data.creation.isPublished
+		})
+	}
+
+	navigetToCreate(): void {
+		this.router.navigateByUrl('create');
 	}
 }

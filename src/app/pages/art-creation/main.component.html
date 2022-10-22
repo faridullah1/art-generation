@@ -18,10 +18,8 @@
 	
 				<div class="ml-3">
 					<span class="label">Filter:</span>
-					<select>
-						<option value="default">Default</option>
-						<option value="archived">Archived</option>
-						<option value="published">Published</option>
+					<select [formControl]="statusFC" (change)="getAllCreations()">
+						<option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
 					</select>
 				</div>
 			</div>
@@ -44,8 +42,10 @@
 				<ng-container *ngFor="let creation of creations">
 					<div class="card" *ngIf="creation.outputImage">
 						<div class="detail">
+							<div class="label" *ngIf="creation.isPublished">Published</div>
+
 							<div class="model-actions">
-								<button class="action publish">
+								<button *ngIf="!creation.isPublished" class="action publish" (click)="onPublishCreation(creation)">
 									<mat-icon style="margin-right: .5rem">navigation</mat-icon>
 									Publish
 								</button>
@@ -69,6 +69,11 @@
 					</div>
 				</div>
 			</ng-template>
+
+			<div class="no-record">
+				<p class="text">There's nothing here yet. Create something now!</p>
+				<button class="btn-create" (click)="navigetToCreate()">Create</button>
+			</div>
 		</ng-container>
 
 		<ng-template #loader>
