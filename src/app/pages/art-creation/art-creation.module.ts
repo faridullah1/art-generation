@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { MaterialModule } from 'src/app/material/material.module';
+import { SharedModule } from '../shared/shared.module';
+
 import { ArtCreationComponent } from './main.component';
 import { CreateComponent } from './components/create/create.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PromptComponent } from './components/prompt/prompt.component';
-import { MaterialModule } from 'src/app/material/material.module';
 import { FeedComponent } from './components/feed/feed.component';
 import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
 
@@ -24,7 +26,8 @@ import { ActionsHeaderComponent } from './components/actions-header/actions-head
 		CommonModule,
 		ReactiveFormsModule,
 
-		MaterialModule
+		MaterialModule,
+		SharedModule
 	]
 })
 export class ArtCreationModule { }

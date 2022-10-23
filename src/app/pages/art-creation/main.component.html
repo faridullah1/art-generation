@@ -1,8 +1,6 @@
 <div class="container">
-	<div class="heading">
-		<h1>My creations</h1>
-	</div>
-
+	<app-page-title title="My Creations"></app-page-title>
+	
 	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'">
 		<app-actions-header (signal)="onHeaderAction($event)"></app-actions-header>
 

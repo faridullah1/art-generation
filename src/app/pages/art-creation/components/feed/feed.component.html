@@ -1,8 +1,8 @@
 <div class="container">
-	<div class="heading">
-		<h1 class="title">Your Feed</h1>
-		<div class="description">The latest artworks from the creators you follow</div>
-	</div>
+	<app-page-title 
+		title="Your Feed" 
+		description="The latest artworks from the creators you follow">
+	</app-page-title>
 
 	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'">
 		<app-actions-header (signal)="onHeaderAction($event)"></app-actions-header>
@@ -351,8 +351,6 @@
 				</div>
 			</ng-template>
 		</ng-container>
-
-
 
 		<ng-template #loader>
 			<mat-spinner diameter="30"></mat-spinner>

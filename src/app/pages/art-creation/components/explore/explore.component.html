@@ -1,8 +1,8 @@
 <div class="container">
-	<div class="heading">
-		<h1 class="title">Explore other creators work</h1>
-		<div class="description">Browse the best AI generated artworks created with NightCafe</div>
-	</div>
+	<app-page-title 
+		title="Explore other creators work" 
+		description="Browse the best AI generated artworks created with NightCafe">
+	</app-page-title>
 
 	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'">
 		<app-actions-header (signal)="onHeaderAction($event)"></app-actions-header>
