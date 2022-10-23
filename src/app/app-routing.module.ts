@@ -7,11 +7,12 @@ import { ArtCreationComponent } from './pages/art-creation/main.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { PromptComponent } from './pages/art-creation/components/prompt/prompt.component';
 import { FeedComponent } from './pages/art-creation/components/feed/feed.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'my-creations', pathMatch: 'full' },
-	{ path: 'my-creations', component: ArtCreationComponent },
-	{ path: 'feed', component: FeedComponent },
+	{ path: 'my-creations', component: ArtCreationComponent, canActivate: [AuthGuard]},
+	{ path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
 	{ path: 'create', component: CreateComponent },
 	{ path: 'create/:prompt', component: PromptComponent },
 	{ path: 'explore', component: ExploreComponent },
