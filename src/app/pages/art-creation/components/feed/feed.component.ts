@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutType } from 'src/app/pages/models';
+import { HeaderAction, LayoutType } from 'src/app/pages/models';
 
 
 @Component({
@@ -8,16 +8,20 @@ import { LayoutType } from 'src/app/pages/models';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-
-  creations: any[] = [];
+  	creations: any[] = [];
 	layout: LayoutType = 'List';
 	loading = false;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+	constructor() { }
 
-  onLayoutChange(layout: LayoutType): void {
-		this.layout = layout;
+	ngOnInit(): void {
+	}
+
+	onHeaderAction(action: HeaderAction): void {
+		switch(action.type) {
+			case 'LayoutChange':
+				this.layout = action.value;
+				break;
+		}
 	}
 }

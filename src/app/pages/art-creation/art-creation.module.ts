@@ -8,6 +8,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FeedComponent } from './components/feed/feed.component';
+import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FeedComponent } from './components/feed/feed.component';
 		CreateComponent,
 		ExploreComponent,
   		PromptComponent,
-		FeedComponent
+		FeedComponent,
+		ActionsHeaderComponent
 	],
 	imports: [
 		CommonModule,

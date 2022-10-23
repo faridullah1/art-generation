@@ -5,40 +5,7 @@
 	</div>
 
 	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'">
-		<div class="actions">
-			<div class="left">
-				<div class="layout">
-					<button [class.selected]="layout === 'List'" mat-icon-button (click)="onLayoutChange('List')">
-						<mat-icon>reorder</mat-icon>
-					</button>
-
-					<button [class.selected]="layout === 'Grid'" mat-icon-button (click)="onLayoutChange('Grid')">
-						<mat-icon>grid_view</mat-icon>
-					</button>
-				</div>
-	
-				<div class="ml-3">
-					<span class="label">Filter:</span>
-					<select>
-						<option value="default">Default</option>
-						<option value="archived">Archived</option>
-						<option value="published">Published</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="right">
-				<div>
-					<button mat-icon-button >
-						<mat-icon>refresh</mat-icon>
-					</button>
-
-					<button mat-icon-button>
-						<mat-icon>more_vert</mat-icon>
-					</button>
-				</div>
-			</div>
-		</div>
+		<app-actions-header (signal)="onHeaderAction($event)"></app-actions-header>
 
 		<ng-container *ngIf="!loading; else loader">
 			<ng-container *ngIf="layout === 'List'; else gridView;">

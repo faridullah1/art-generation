@@ -1,4 +1,5 @@
 export type LayoutType = 'Grid' | 'List';
+export type CreationStatus = 'Default' | 'Published' | 'Archived';
 
 export interface ArtModel {
 	name: string;
@@ -41,4 +42,9 @@ export interface UserProfile {
 		name: string;
 		picture: string;
 	}
+}
+
+export interface HeaderAction {
+	type: 'LayoutChange' | 'StatusChange' | 'Refresh';
+	value: any;
 }

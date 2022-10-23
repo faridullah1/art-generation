@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArtCreationModule } from './pages/art-creation/art-creation.module';
 import { LayoutModule } from './pages/layout/layout.module';
-import { FeedComponent } from './pages/art-creation/components/feed/feed.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AuthService } from './services/auth.service';

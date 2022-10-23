@@ -1,0 +1,22 @@
+.actions {
+	margin: 1.6rem 0px .8rem;
+	border-bottom: 1px solid rgb(242, 242, 242);
+	padding-bottom: 4px;
+	display: flex;
+	justify-content: space-between;
+	width: 901px;
+
+	.left {
+		display: flex;
+		align-items: center;
+	}
+
+	.label {
+		margin-right: 1rem;
+		font-size: 1.2rem;
+	}
+
+	.selected {
+		color: var(--color-secondary);
+	}
+}

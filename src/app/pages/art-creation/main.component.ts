@@ -1,8 +1,7 @@
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { Creation, LayoutType } from '../models';
+import { Creation, CreationStatus, HeaderAction, LayoutType } from '../models';
 
 
 @Component({
@@ -13,9 +12,9 @@ import { Creation, LayoutType } from '../models';
 export class ArtCreationComponent implements OnInit {
 	creations: Creation[] = [];
 	layout: LayoutType = 'List';
-	loading = false;
-	statusFC = new FormControl('Default');
+	status: CreationStatus = 'Default';
 	statuses = ['Default', 'Published', 'Archived'];
+	loading = false;
 
 	constructor(private apiService: ApiService, private router: Router) { }
 
@@ -26,7 +25,7 @@ export class ArtCreationComponent implements OnInit {
 	getAllCreations(): void {
 		this.loading = true;
 
-		this.apiService.get(`/creations?status=${this.statusFC.value}`).subscribe({
+		this.apiService.get(`/creations?status=${this.status}`).subscribe({
 			next: (resp) => {
 				this.creations = resp.data.creations;
 				this.loading = false;
@@ -35,8 +34,21 @@ export class ArtCreationComponent implements OnInit {
 		});
 	}
 
-	onLayoutChange(layout: LayoutType): void {
-		this.layout = layout;
+	onHeaderAction(action: HeaderAction): void {
+		switch(action.type) {
+			case 'LayoutChange':
+				this.layout = action.value;
+				break;
+		
+			case 'StatusChange':
+				this.status = action.value;
+				this.getAllCreations();
+				break;
+
+			case 'Refresh':
+				this.getAllCreations();
+				break;
+		}
 	}
 
 	onPublishCreation(creation: Creation): void {

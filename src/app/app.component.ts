@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,15 +15,19 @@ export class AppComponent implements OnInit {
 				private router: Router) { }
 
 	ngOnInit(): void {
+		this.handleRedirect();
+
+		if (!this.authService.isLoggedIn) {
+			this.router.navigateByUrl('login');
+		}
+	}
+
+	handleRedirect(): void {
 		const redirectUrl = localStorage.getItem('redirectUrl');
 		if (redirectUrl) {
 			localStorage.removeItem('redirectUrl');
 			this.router.navigateByUrl(redirectUrl);
 			return;
-		}
-
-		if (!this.authService.isLoggedIn) {
-			this.router.navigateByUrl('login');
 		}
 	}
 }
