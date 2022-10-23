@@ -52,6 +52,28 @@ body {
 	cursor: pointer;
 }
 
+.no-record {
+	text-align: center;
+	margin: 2rem auto 5rem;
+
+	.text {
+		margin-bottom: 2.4rem;
+	}
+
+	.btn-create {
+		padding: 1.5rem 3rem;
+		border: 1px solid var(--color-secondary);
+		background-color: var(--color-secondary);
+		color: #fff;
+		font-weight: 600;
+
+		&:hover {
+			opacity: .8;
+			cursor: pointer;
+		}
+	}
+}
+
 .authenticating-loader {
 	display: flex;
 	align-items: center;
