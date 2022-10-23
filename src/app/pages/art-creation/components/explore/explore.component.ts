@@ -41,6 +41,10 @@ export class ExploreComponent implements OnInit {
 			case 'LayoutChange':
 				this.layout = action.value;
 				break;
+
+			case 'Refresh':
+				this.getAllCreations();
+				break
 		}
 	}
 

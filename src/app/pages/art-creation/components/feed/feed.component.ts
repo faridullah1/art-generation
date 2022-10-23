@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderAction, LayoutType } from 'src/app/pages/models';
+import { ApiService } from 'src/app/services/api.service';
 
 
 @Component({
@@ -12,9 +14,24 @@ export class FeedComponent implements OnInit {
 	layout: LayoutType = 'List';
 	loading = false;
 
-	constructor() { }
+	constructor(private apiService: ApiService,
+				private router: Router) 
+	{ }
 
 	ngOnInit(): void {
+		this.getAllCreations();
+	}
+
+	getAllCreations(): void {
+		this.loading = true;
+
+		this.apiService.get(`/creations?status=Published`).subscribe({
+			next: (resp) => {
+				this.creations = resp.data.creations;
+				this.loading = false;
+			},
+			error: () => this.loading = false
+		});
 	}
 
 	onHeaderAction(action: HeaderAction): void {
@@ -22,6 +39,14 @@ export class FeedComponent implements OnInit {
 			case 'LayoutChange':
 				this.layout = action.value;
 				break;
+
+			case 'Refresh':
+				this.getAllCreations();
+				break;
 		}
+	}
+
+	navigetToCreate(): void {
+		this.router.navigateByUrl('create');
 	}
 }
