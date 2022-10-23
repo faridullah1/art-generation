@@ -14,6 +14,13 @@ export class AppComponent implements OnInit {
 				private router: Router) { }
 
 	ngOnInit(): void {
+		const redirectUrl = localStorage.getItem('redirectUrl');
+		if (redirectUrl) {
+			localStorage.removeItem('redirectUrl');
+			this.router.navigateByUrl(redirectUrl);
+			return;
+		}
+
 		if (!this.authService.isLoggedIn) {
 			this.router.navigateByUrl('login');
 		}

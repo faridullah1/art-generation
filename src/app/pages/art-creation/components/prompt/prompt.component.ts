@@ -29,6 +29,7 @@ export class PromptComponent implements OnInit {
 
 	onCreate(): void {
 		if (!this.authService.isLoggedIn) {
+			localStorage.setItem('redirectUrl', `create/${this.modelType}`);
 			this.router.navigateByUrl('login');
 			return;
 		}
