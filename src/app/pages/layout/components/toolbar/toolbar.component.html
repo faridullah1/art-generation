@@ -3,8 +3,8 @@
 
 	<nav class="nav">
 		<ul>
-			<li routerLink="my-creations" routerLinkActive="active">My creations</li>
-			<li routerLink="feed" routerLinkActive="active">My Feed</li>
+			<li routerLink="my-creations" routerLinkActive="active" *ngIf="isLoggedIn">My creations</li>
+			<li routerLink="feed" routerLinkActive="active" *ngIf="isLoggedIn">My Feed</li>
 			<li routerLink="explore" routerLinkActive="active">Explore</li>
 			<li routerLink="create" routerLinkActive="active">
 				<a class="btn-create">Create</a>
