@@ -114,7 +114,7 @@ export class AuthService {
 			'Authorization': 'Bearer ' + this.getToken()
 		});
 
-		this.http.post('/users', {}, { headers }).subscribe({
+		this.http.post('/api/users', {}, { headers }).subscribe({
 			next: () => console.log('user created')
 		});
 	}

@@ -15,10 +15,9 @@
 							<img src="./assets/images/moai.webp" alt="User" class="user-img">
 							<div class="user-details">
 								<div class="name">
-									<span class="name-desc">Ahsan</span>
-									<span class="name-tag">@ahsan</span>
+									<span class="name-desc">{{ creation.user.name }}</span>
 								</div>
-								<div class="time">7 Hour Ago - Following</div>
+								<div class="time">{{ creation.createdAt | date:'medium' }}</div>
 							</div>
 						</div>
 					</div>
@@ -31,31 +30,9 @@
 								<mat-icon>favorite_border</mat-icon>
 								<span>{{ creation.likes }}</span>
 							</div>
-
-							<div class="share">
-								<mat-icon>share</mat-icon>
-								<span>Share</span>
-							</div>
 						</div>
 
-						<h3 class="desc-title">Sauron</h3>
-
-						<div class="acts-bar">
-							<div class="acts">
-								<mat-icon>refresh</mat-icon>
-								<span>4</span>
-							</div>
-
-							<div class="acts">
-								<mat-icon>image</mat-icon>
-								<span>Thumb</span>
-							</div>
-							
-							<div class="acts">
-								<mat-icon>fullscreen_exit</mat-icon>
-								<span>4</span>
-							</div>
-						</div>
+						<h3 class="desc-title">{{ creation.description }}</h3>
 
 						<div class="d-flex flex-col">
 							<div class="comments" *ngFor="let comment of creation.creation_comments">

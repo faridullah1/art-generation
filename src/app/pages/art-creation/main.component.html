@@ -9,10 +9,10 @@
 				<ng-container *ngFor="let creation of creations">
 					<div class="card" *ngIf="creation.outputImage">
 						<div class="detail">
-							<div class="label" *ngIf="creation.isPublished">Published</div>
+							<div class="label" *ngIf="creation.status === 'Published'">Published</div>
 
 							<div class="model-actions">
-								<button *ngIf="!creation.isPublished" class="action publish" (click)="onPublishCreation(creation)">
+								<button *ngIf="creation.status !== 'Published'" class="action publish" (click)="onPublishCreation(creation)">
 									<mat-icon style="margin-right: .5rem">navigation</mat-icon>
 									Publish
 								</button>

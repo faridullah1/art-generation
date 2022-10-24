@@ -1,7 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { OAuthModule } from 'angular-oauth2-oidc';
 
@@ -13,7 +13,6 @@ import { ArtCreationModule } from './pages/art-creation/art-creation.module';
 import { AppComponent } from './app.component';
 
 import { AuthService } from './services/auth.service';
-import { DefaultOAuthInterceptor } from './interceptors/token-interceptor';
 
 export function authAppInitializerFactory(authService: AuthService): () => Promise<void> {
 	return () => authService.runInitialLoginSequence();

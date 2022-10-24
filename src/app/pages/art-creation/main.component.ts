@@ -58,7 +58,9 @@ export class ArtCreationComponent implements OnInit {
 		};
 
 		this.apiService.post('/creations/publish', payload).subscribe({
-			next: (resp: any) => creation.isPublished = resp.data.creation.isPublished
+			next: (resp: any) => {
+				this.creations[this.creations.indexOf(creation)] = resp.data.creation
+			}
 		})
 	}
 
