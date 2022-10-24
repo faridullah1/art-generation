@@ -1,10 +1,10 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { BehaviorSubject, combineLatest, filter, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserProfile } from '../pages/models';
-import { ApiService } from './api.service';
 
 export const config: AuthConfig = {
 	clientId: environment.clientId,
@@ -33,7 +33,7 @@ export class AuthService {
 
 	constructor(private readonly oauthService: OAuthService, 
 				private router: Router,
-				private apiService: ApiService) 
+				private http: HttpClient) 
 	{
 		this.init();
 	}
@@ -110,7 +110,11 @@ export class AuthService {
 	}
 
 	saveUser(): void {
-		this.apiService.post('/users', {}).subscribe({
+		const headers = new HttpHeaders({
+			'Authorization': 'Bearer ' + this.getToken()
+		});
+
+		this.http.post('/users', {}, { headers }).subscribe({
 			next: () => console.log('user created')
 		});
 	}

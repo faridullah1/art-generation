@@ -31,12 +31,7 @@ export function authAppInitializerFactory(authService: AuthService): () => Promi
 		AppRoutingModule,
 
 		// 3rd party modules
-		OAuthModule.forRoot({
-			resourceServer: {
-				allowedUrls: ['http://localhost:3000/api'],
-				sendAccessToken: true
-			}
-		}),
+		OAuthModule.forRoot(),
 
 		// Custom modules
 		LayoutModule,
@@ -45,7 +40,6 @@ export function authAppInitializerFactory(authService: AuthService): () => Promi
 	],
 	providers: [
         { provide: APP_INITIALIZER, useFactory: authAppInitializerFactory, deps: [AuthService], multi: true },
-		{ provide: HTTP_INTERCEPTORS, useClass: DefaultOAuthInterceptor, multi: true }
     ],
   	bootstrap: [AppComponent]
 })

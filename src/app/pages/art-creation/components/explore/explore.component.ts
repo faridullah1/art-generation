@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreationStatus, HeaderAction, LayoutType } from 'src/app/pages/models';
@@ -15,6 +16,8 @@ export class ExploreComponent implements OnInit {
 	layout: LayoutType = 'List';
 	loading = false;
 	status: CreationStatus = 'Published';
+	commentFC = new FormControl('', Validators.required);
+	disableSubmitBtn = false;
 
 	constructor(private apiService: ApiService, 
 				private router: Router) 
@@ -50,5 +53,23 @@ export class ExploreComponent implements OnInit {
 
 	navigetToCreate(): void {
 		this.router.navigateByUrl('create');
+	}
+
+	onSubmitComment(creation: Creation): void {
+		this.disableSubmitBtn = true;
+
+		const payload = {
+			creationId: creation.creationId,
+			comment: this.commentFC.value
+		};
+		
+		this.apiService.post('/comments', payload).subscribe({
+			next: (resp: any) => {
+				this.commentFC.reset();
+				this.disableSubmitBtn = false;
+				creation.creation_comments.push(resp.data);
+			},
+			error: () => this.disableSubmitBtn = false
+		});
 	}
 }

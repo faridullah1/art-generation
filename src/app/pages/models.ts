@@ -33,6 +33,23 @@ export interface Creation {
 	description: string;
 	likes: number;
 	createdAt: string;
+	creation_comments: CreationComment[];
+	user: User;
+}
+
+export interface CreationComment {
+	commentId: number;
+	comment: string;
+	userId: number;
+	creationId: number;
+	dateCreated: string;
+	user: User;
+}
+
+export interface User {
+	name: string;
+	email: string;
+	dateCreated: string;
 }
 
 export interface UserProfile {

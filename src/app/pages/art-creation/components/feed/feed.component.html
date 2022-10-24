@@ -12,7 +12,7 @@
 				<div class="card" *ngFor="let creation of creations;">
 					<div class="detail-header">
 						<div class="user">
-							<img [src]="creation.outputImage" alt="Creation" class="user-img">
+							<img src="./assets/images/moai.webp" alt="User" class="user-img">
 							<div class="user-details">
 								<div class="name">
 									<span class="name-desc">Ahsan</span>
@@ -20,21 +20,10 @@
 								</div>
 								<div class="time">7 Hour Ago - Following</div>
 							</div>
-
-							<div class="write-comment">
-								<img src="./assets/images/avatar.jpg" alt="" class="user-img">
-									<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
-									
-							</div>
-
-							<div class="submit-sec">
-								<button class="submit">Submit</button>
-								<div class="community">comunity guidlines</div>
-							</div>
 						</div>
 					</div>
 	
-					<img src="./assets/images/village.webp" alt="Creation" class="image">
+					<img [src]="creation.outputImage" alt="Creation" class="image">
 
 					<div class="description">
 						<div class="like">
@@ -47,11 +36,11 @@
 								<mat-icon>share</mat-icon>
 								<span>Share</span>
 							</div>
-							
 						</div>
-						<h3 class="desc-title">Sauron</h3>
-						<div class="acts-bar">
 
+						<h3 class="desc-title">Sauron</h3>
+
+						<div class="acts-bar">
 							<div class="acts">
 								<mat-icon>refresh</mat-icon>
 								<span>4</span>
@@ -65,143 +54,21 @@
 							<div class="acts">
 								<mat-icon>fullscreen_exit</mat-icon>
 								<span>4</span>
-							</div>		
+							</div>
 						</div>
 
-							<div class="submit-sec">
-								<button class="submit">Submit</button>
-								<div class="community">comunity guidlines</div>
-							</div>
+						<div class="write-comment">
+							<img src="./assets/images/avatar.jpg" alt="" class="user-img">
+								<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
+								
+						</div>
+
+						<div class="submit-sec">
+							<button class="submit">Submit</button>
+							<div class="community">comunity guidlines</div>
 						</div>
 					</div>
-
-					<div class="card" >
-						<div class="detail-header">
-							<div class="user">
-									<img src="./assets/images/moai.webp" alt="Creation" class="user-img">
-									<div class="user-details">
-										<div class="name">
-											<span class="name-desc">Ahsan</span>
-											<span class="name-tag">@ahsan</span>
-										</div>
-										<div class="time">7 Hour Ago - Following</div>
-									</div>
-
-									<div class="pro">pro</div>
-							</div>
-						</div>
-		
-						<img src="./assets/images/village.webp" alt="Creation" class="image">
-
-						<div class="description">
-							<div class="like">
-								<div class="favourite">
-									<mat-icon>favorite_border</mat-icon>
-									<span>30</span>
-								</div>
-
-								<div class="share">
-									<mat-icon>share</mat-icon>
-									<span>Share</span>
-								</div>
-								
-							</div>
-							<h3 class="desc-title">Sauron</h3>
-							<div class="acts-bar">
-
-								<div class="acts">
-									<mat-icon>refresh</mat-icon>
-									<span>4</span>
-								</div>
-
-								<div class="acts">
-									<mat-icon>image</mat-icon>
-									<span>Thumb</span>
-								</div>
-								
-								<div class="acts">
-									<mat-icon>fullscreen_exit</mat-icon>
-									<span>4</span>
-								</div>		
-							</div>
-
-							<div class="write-comment">
-								<img src="./assets/images/avatar.jpg" alt="" class="user-img">
-									<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
-									
-							</div>
-
-							<div class="submit-sec">
-								<button class="submit">Submit</button>
-								<div class="community">comunity guidlines</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="card" >
-						<div class="detail-header">
-							<div class="user">
-									<img src="./assets/images/moai.webp" alt="Creation" class="user-img">
-									<div class="user-details">
-										<div class="name">
-											<span class="name-desc">Ahsan</span>
-											<span class="name-tag">@ahsan</span>
-										</div>
-										<div class="time">7 Hour Ago - Following</div>
-									</div>
-
-									<div class="pro">pro</div>
-							</div>
-						</div>
-		
-						<img src="./assets/images/village.webp" alt="Creation" class="image">
-
-						<div class="description">
-							<div class="like">
-								<div class="favourite">
-									<mat-icon>favorite_border</mat-icon>
-									<span>30</span>
-								</div>
-
-								<div class="share">
-									<mat-icon>share</mat-icon>
-									<span>Share</span>
-								</div>
-								
-							</div>
-							<h3 class="desc-title">Sauron</h3>
-							<div class="acts-bar">
-
-								<div class="acts">
-									<mat-icon>refresh</mat-icon>
-									<span>4</span>
-								</div>
-
-								<div class="acts">
-									<mat-icon>image</mat-icon>
-									<span>Thumb</span>
-								</div>
-								
-								<div class="acts">
-									<mat-icon>fullscreen_exit</mat-icon>
-									<span>4</span>
-								</div>		
-							</div>
-
-							<div class="write-comment">
-								<img src="./assets/images/avatar.jpg" alt="" class="user-img">
-									<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Search"></textarea>
-									
-							</div>
-
-							<div class="submit-sec">
-								<button class="submit">Submit</button>
-								<div class="community">comunity guidlines</div>
-							</div>
-						</div>
-					</div>
-
-				
+				</div>
 			</ng-container>
 			
 			<ng-template #gridView>
