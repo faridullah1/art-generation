@@ -173,7 +173,6 @@
 				}
 
 				.comments {
-
 					height: 40px;
 					width: fit-content;
 					display: flex;
@@ -183,16 +182,15 @@
 					color: #6c7176;
 
 					.comments-name{
-						font-weight: bold;
-						display: inline-block;
+						font-weight: 600;
+						font-size: 1.5rem;
 						margin-right: 4px;
 					}
 	
 					.comments-desc{
-						font-size: 14px;
+						font-size: 1.4rem;
 						color: #6c7176;
 					}
-
 				}
 
 				.read-all {

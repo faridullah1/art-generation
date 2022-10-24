@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HeaderAction, LayoutType } from 'src/app/pages/models';
+import { Creation, HeaderAction, LayoutType } from 'src/app/pages/models';
 import { ApiService } from 'src/app/services/api.service';
 
 
@@ -10,8 +11,10 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  	creations: any[] = [];
+  	creations: Creation[] = [];
 	layout: LayoutType = 'List';
+	commentFC = new FormControl('', Validators.required);
+	disableSubmitBtn = false;
 	loading = false;
 
 	constructor(private apiService: ApiService,
@@ -48,5 +51,23 @@ export class FeedComponent implements OnInit {
 
 	navigetToCreate(): void {
 		this.router.navigateByUrl('create');
+	}
+
+	onSubmitComment(creation: Creation): void {
+		this.disableSubmitBtn = true;
+
+		const payload = {
+			creationId: creation.creationId,
+			comment: this.commentFC.value
+		};
+		
+		this.apiService.post('/comments', payload).subscribe({
+			next: (resp: any) => {
+				this.commentFC.reset();
+				this.disableSubmitBtn = false;
+				creation.creation_comments.push(resp.data);
+			},
+			error: () => this.disableSubmitBtn = false
+		});
 	}
 }

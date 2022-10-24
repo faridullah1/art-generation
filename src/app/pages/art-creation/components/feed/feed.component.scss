@@ -173,7 +173,6 @@
 				}
 
 				.comments {
-
 					height: 40px;
 					width: fit-content;
 					display: flex;
@@ -183,16 +182,15 @@
 					color: #6c7176;
 
 					.comments-name{
-						font-weight: bold;
-						display: inline-block;
+						font-weight: 600;
+						font-size: 1.5rem;
 						margin-right: 4px;
 					}
 	
 					.comments-desc{
-						font-size: 14px;
+						font-size: 1.4rem;
 						color: #6c7176;
 					}
-
 				}
 
 				.read-all {
@@ -214,6 +212,7 @@
 						height: 40px;
 						border-radius: 50%;
 					}
+
 					.search-input {
 						display: block;
 						appearance: none;
@@ -228,23 +227,21 @@
 						max-height: 40px;
 						resize: none;
 						width: calc(100% - 40px);
-					  }
-
+					}
 				}
 
 				.submit-sec{
-
 					display: flex;
 					align-items: center;
 					margin-left: 50px;
 					gap: 5px;
 
-					.submit {
-						position: relative;
-						display: inline-block;
-						text-align: center;
+					.btn-submit {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
 						border: 1px solid rgb(37, 43, 48);
-						line-height: normal;
 						font-weight: 700;
 						text-transform: uppercase;
 						letter-spacing: 0.02em;
@@ -253,15 +250,15 @@
 						padding: 0.66em 1.2em;
 						background: rgb(37, 43, 48);
 						color: rgb(255, 255, 255);
-						cursor: default;
-						opacity: 0.8;
-						text-decoration: none !important;
-					}
+						cursor: pointer;
+						width: 8.7rem;
+						min-width: 8.7rem;
+						height: 3.5rem;
 
-					.community {
-						font-size: 14px;
-						color: #252b30;
-						text-decoration: underline;;
+						&:disabled {
+							opacity: 0.6;
+							cursor: default !important;
+						}
 					}
 				}
 
