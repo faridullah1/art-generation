@@ -13,6 +13,7 @@ export class ToolbarComponent implements OnInit {
 	profile!: UserProfile;
 	isLoggedIn: boolean = false;
 	toggleProfileMenu = false;
+	showMobileMenu = false;
 
 	constructor(private authService: AuthService, 
 				private router: Router)
@@ -30,5 +31,11 @@ export class ToolbarComponent implements OnInit {
 	onLogin(): void {
 		this.toggleProfileMenu = false;
 		this.isLoggedIn ? this.authService.logout() : this.router.navigateByUrl('login');
+	}
+
+	toggleMenu(ev: MouseEvent): void {
+		ev.stopPropagation();
+		
+		this.showMobileMenu = !this.showMobileMenu;
 	}
 }
