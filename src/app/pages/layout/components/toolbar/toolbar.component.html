@@ -8,7 +8,7 @@
 
 		<div class="profile" (click)="toggleProfileMenu = !toggleProfileMenu">
 			<img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
-			<div *ngIf="profile" class="ml-3">{{ profile.info?.email}}</div>
+			<div *ngIf="profile" class="ml-3">{{ profile.info?.name}}</div>
 		</div>
 
 		<mat-icon class="humburger-menu-icon" (click)="toggleMenu($event)">menu</mat-icon>
