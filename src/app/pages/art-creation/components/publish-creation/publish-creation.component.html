@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="header">
+		<h2>Creation Info</h2>
+		<mat-icon class="pointer" matDialogClose>close</mat-icon>
+	</div>
+
+	<div class="form" [formGroup]="theForm">
+		<mat-form-field appearance="outline" class="w-100-p">
+			<mat-label>Title</mat-label>
+			<input matInput placeholder="Title" formControlName="title" required>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline" class="w-100-p">
+			<mat-label>Description</mat-label>
+			<input type="Description" matInput formControlName="description">
+		</mat-form-field>
+	</div>
+
+	<div class="actions">
+		<button class="btn-submit" (click)="onSubmit()"
+			[disabled]="theForm.invalid || disableSubmitBtn">
+			<span *ngIf="!disableSubmitBtn">Submit</span>
+
+			<mat-progress-spinner
+				*ngIf="disableSubmitBtn"
+				[diameter]="24"
+				[mode]="'indeterminate'">
+			</mat-progress-spinner>
+		</button>
+	</div>
+</div>

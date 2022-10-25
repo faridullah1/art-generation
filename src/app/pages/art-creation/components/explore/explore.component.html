@@ -31,7 +31,7 @@
 	
 					<img [src]="creation.outputImage" alt="Creation" class="image">
 
-					<div class="description">
+					<div class="description-container">
 						<div class="like">
 							<div class="favourite">
 								<mat-icon>favorite_border</mat-icon>
@@ -39,7 +39,9 @@
 							</div>
 						</div>
 
-						<h3 class="desc-title">{{ creation.description }}</h3>
+						<h3 class="title">{{ creation.prompt }}</h3>
+
+						<p class="description">{{ creation.description }}</p>
 
 						<div class="d-flex flex-col">
 							<div class="comments" *ngFor="let comment of creation.creation_comments">
