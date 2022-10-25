@@ -17,18 +17,21 @@
 								<div class="name">
 									<span class="name-desc">{{ creation.user.name }}</span>
 								</div>
-								<div class="time">{{ creation.createdAt | date:'medium'}}</div>
+								<div class="info">
+									{{ creation.createdAt | date:'medium'}} <span *ngIf="followedByUsersIds.includes(creation.user.userId)">&nbsp;-&nbsp;Following</span>
+								</div>
 							</div>
 						</div>
 	
-						<div class="model-info">
-							<button class="follow">Follow</button>
+						<div *ngIf="!followedByUsersIds.includes(creation.user.userId) && creation.user.email !== userProfile?.info?.email"
+							class="model-info">
+							<button class="btn-follow" [disabled]="disableFollowBtn" (click)="onFollowUser(creation)">Follow</button>
 						</div>
 					</div>
 	
 					<img [src]="creation.outputImage" alt="Creation" class="image">
 
-					<div class="description">
+					<div class="description-container">
 						<div class="like">
 							<div class="favourite">
 								<mat-icon>favorite_border</mat-icon>
@@ -36,7 +39,9 @@
 							</div>
 						</div>
 
-						<h3 class="desc-title">{{ creation.description }}</h3>
+						<h3 class="title">{{ creation.prompt }}</h3>
+
+						<p class="description">{{ creation.description }}</p>
 
 						<div class="d-flex flex-col">
 							<div class="comments" *ngFor="let comment of creation.creation_comments">

@@ -11,6 +11,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
+import { PublishCreationComponent } from './components/publish-creation/publish-creation.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ActionsHeaderComponent } from './components/actions-header/actions-head
 		ExploreComponent,
   		PromptComponent,
 		FeedComponent,
-		ActionsHeaderComponent
+		ActionsHeaderComponent,
+ 		PublishCreationComponent
 	],
 	imports: [
 		CommonModule,

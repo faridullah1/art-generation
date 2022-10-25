@@ -1,0 +1,46 @@
+::ng-deep .dlg-publish .mat-dialog-container
+{
+	padding: 0 !important;
+}
+
+.container {
+	padding: 2rem;
+	font-size: 1.6rem;
+
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+	}
+
+	.btn-submit {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border: 1px solid rgb(37, 43, 48);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+		transition: all 0.3s ease 0s;
+		font-size: 13px;
+		padding: 0.66em 1.2em;
+		background: rgb(37, 43, 48);
+		color: rgb(255, 255, 255);
+		cursor: pointer;
+		width: 8.7rem;
+		min-width: 8.7rem;
+		height: 3.5rem;
+
+		&:disabled {
+			opacity: 0.6;
+			cursor: default !important;
+		}
+	}
+
+	.actions {
+		display: flex;
+		justify-content: flex-end;
+	}
+}

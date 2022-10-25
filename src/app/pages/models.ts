@@ -47,6 +47,7 @@ export interface CreationComment {
 }
 
 export interface User {
+	userId: number;
 	name: string;
 	email: string;
 	dateCreated: string;

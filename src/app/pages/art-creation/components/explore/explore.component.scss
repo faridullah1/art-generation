@@ -36,10 +36,10 @@
 				height: 72px;
 				padding:0 16px;
 				
-				.follow {
+				.btn-follow {
 					display: inline-block;
 					text-align: center;
-					border: 1px solid rgb(230, 77, 106);
+					border: 1px solid var(--color-secondary);
 					line-height: normal;
 					cursor: pointer;
 					font-weight: 700;
@@ -48,13 +48,18 @@
 					transition: all 0.3s ease 0s;
 					font-size: 10px;
 					padding: 0.3em 0.8em;
-					background: rgb(230, 77, 106);
+					background: var(--color-secondary);
 					color: rgb(255, 255, 255);
 					text-decoration: none !important;
-				}
 
-				.follow:hover {
-					opacity: 0.8;
+					&:hover {
+						opacity: 0.8;
+					}
+
+					&:disabled {
+						opacity: 0.6;
+						cursor: default;
+					}
 				}
 
 				.user {
@@ -96,8 +101,9 @@
 							}
 						}
 
-						.time {
-							font-size: 12px;
+						.info {
+							display: flex;
+							font-size: 1.2rem;
 							color: rgb(122, 113, 113);;
 						}
 					}
@@ -111,7 +117,7 @@
 				object-fit: cover;
 			}
 
-			.description {
+			.description-container {
 				height: auto;
 				display: flex;
 				flex-direction: column;
@@ -142,14 +148,21 @@
 					}
 				}
 
-				.desc-title{
+				.title {
 					transition: color 0.2s ease 0s;
 					color: rgb(37, 43, 48);
 					text-decoration: none;
+
+					&:hover {
+						color: rgb(108, 113, 118);
+					}
 				}
 
-				.desc-title:hover {
-					color: rgb(108, 113, 118);
+				.description {
+					color: #6c7176;
+
+					font-size: 1.4rem;
+					margin: 1rem 0;
 				}
 
 				.acts-bar{
@@ -178,18 +191,13 @@
 					display: flex;
 					justify-content: flex-start;
 					align-items: center;
-					font-size: 14px;
+					font-size: 1.4rem;
 					color: #6c7176;
 
-					.comments-name{
+					.comments-name {
 						font-weight: 600;
 						font-size: 1.5rem;
 						margin-right: 4px;
-					}
-	
-					.comments-desc{
-						font-size: 1.4rem;
-						color: #6c7176;
 					}
 				}
 
