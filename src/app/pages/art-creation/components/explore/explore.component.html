@@ -17,12 +17,15 @@
 								<div class="name">
 									<span class="name-desc">{{ creation.user.name }}</span>
 								</div>
-								<div class="time">{{ creation.createdAt | date:'medium'}}</div>
+								<div class="info">
+									{{ creation.createdAt | date:'medium'}} <span *ngIf="followedByUsersIds.includes(creation.user.userId)">&nbsp;-&nbsp;Following</span>
+								</div>
 							</div>
 						</div>
 	
-						<div class="model-info">
-							<button class="btn-follow" (click)="onFollowUser(creation)">Follow</button>
+						<div *ngIf="!followedByUsersIds.includes(creation.user.userId) && creation.user.email !== userProfile?.info?.email"
+							class="model-info">
+							<button class="btn-follow" [disabled]="disableFollowBtn" (click)="onFollowUser(creation)">Follow</button>
 						</div>
 					</div>
 	

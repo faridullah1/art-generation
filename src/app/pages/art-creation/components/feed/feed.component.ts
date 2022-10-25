@@ -28,7 +28,7 @@ export class FeedComponent implements OnInit {
 	getAllCreations(): void {
 		this.loading = true;
 
-		this.apiService.get(`/followers`).subscribe({
+		this.apiService.get(`/followers/creations`).subscribe({
 			next: (resp) => {
 				this.creations = resp.data.creations;
 				this.loading = false;

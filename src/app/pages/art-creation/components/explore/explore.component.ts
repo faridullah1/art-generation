@@ -1,9 +1,10 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreationStatus, HeaderAction, LayoutType } from 'src/app/pages/models';
-import { ApiService } from 'src/app/services/api.service';
+import { CreationStatus, HeaderAction, LayoutType, UserProfile } from 'src/app/pages/models';
 import { Creation } from './../../../models';
+import { AuthService } from '@services/auth.service';
+import { ApiService } from '@services/api.service';
 
 
 @Component({
@@ -14,17 +15,27 @@ import { Creation } from './../../../models';
 export class ExploreComponent implements OnInit {
   	creations: Creation[] = [];
 	layout: LayoutType = 'List';
-	loading = false;
 	status: CreationStatus = 'Published';
 	commentFC = new FormControl('', Validators.required);
-	disableSubmitBtn = false;
+	followedByUsersIds: number[] = [];
+	userProfile!: UserProfile;
 
-	constructor(private apiService: ApiService, 
+	disableFollowBtn = false;
+	disableSubmitBtn = false;
+	loading = false;
+
+	constructor(private apiService: ApiService,
+				private authService: AuthService,
 				private router: Router) 
-	{ }
+	{
+		this.authService.userProfileSubject.subscribe(resp => {
+			this.userProfile = resp;
+		});
+	}
 
 	ngOnInit(): void {
 		this.getAllCreations();
+		this.getFollowedByUsersIds();
 	}
 
 	getAllCreations(): void {
@@ -36,6 +47,21 @@ export class ExploreComponent implements OnInit {
 				this.loading = false;
 			},
 			error: () => this.loading = false
+		});
+	}
+
+	getFollowedByUsersIds(): void {
+		this.disableFollowBtn = true;
+		
+		this.apiService.get(`/followers`).subscribe({
+			next: (resp) => {
+				this.followedByUsersIds = resp.data;
+				this.disableFollowBtn = false;
+			},
+			error: () => {
+				this.loading = false;
+				this.disableFollowBtn = false;
+			}
 		});
 	}
 
@@ -74,12 +100,15 @@ export class ExploreComponent implements OnInit {
 	}
 
 	onFollowUser(creation: Creation): void {
+		this.disableFollowBtn = true;
 		const userId = creation.user.userId;
 
-		this.apiService.post('/follower', { userId }).subscribe({
-			next: (resp: any) => {
-				console.log('User is followed successfuly =', resp);
-			}
+		this.apiService.post('/followers', { userId }).subscribe({
+			next: () => {
+				this.disableFollowBtn = false;
+				this.getFollowedByUsersIds();
+			},
+			error: () => this.disableFollowBtn = false
 		})
 	}
 }
