@@ -72,4 +72,14 @@ export class ExploreComponent implements OnInit {
 			error: () => this.disableSubmitBtn = false
 		});
 	}
+
+	onFollowUser(creation: Creation): void {
+		const userId = creation.user.userId;
+
+		this.apiService.post('/follower', { userId }).subscribe({
+			next: (resp: any) => {
+				console.log('User is followed successfuly =', resp);
+			}
+		})
+	}
 }

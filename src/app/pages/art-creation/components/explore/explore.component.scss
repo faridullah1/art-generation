@@ -36,10 +36,10 @@
 				height: 72px;
 				padding:0 16px;
 				
-				.follow {
+				.btn-follow {
 					display: inline-block;
 					text-align: center;
-					border: 1px solid rgb(230, 77, 106);
+					border: 1px solid var(--color-secondary);
 					line-height: normal;
 					cursor: pointer;
 					font-weight: 700;
@@ -48,9 +48,13 @@
 					transition: all 0.3s ease 0s;
 					font-size: 10px;
 					padding: 0.3em 0.8em;
-					background: rgb(230, 77, 106);
+					background: var(--color-secondary);
 					color: rgb(255, 255, 255);
 					text-decoration: none !important;
+
+					&:hover {
+						opacity: 0.8;
+					}
 				}
 
 				.follow:hover {
