@@ -77,6 +77,7 @@
 				<div class="grid-view">
 					<div class="grid-card" *ngFor="let creation of creations">
 						<img [src]="creation.outputImage" alt="Creation" class="image">
+
 						<div class="grid-actions">
 							<img src="./assets/images/avatar.jpg" alt="User" class="user-img">
 							<div class="fav">
@@ -86,7 +87,7 @@
 
 							<div class="fav">
 								<mat-icon> message</mat-icon>
-								30
+								{{ creation.creation_comments.length }}
 							</div>
 						</div>
 					</div>	

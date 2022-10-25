@@ -10,7 +10,7 @@
 			</button>
 		</div>
 
-		<div class="ml-3">
+		<div class="ml-3" *ngIf="showStatusFilter">
 			<span class="label">Filter:</span>
 			<select [formControl]="statusFC" (change)="onStatusChange()">
 				<option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
@@ -22,10 +22,6 @@
 		<div>
 			<button mat-icon-button (click)="onRefresh()">
 				<mat-icon>refresh</mat-icon>
-			</button>
-
-			<button mat-icon-button>
-				<mat-icon>more_vert</mat-icon>
 			</button>
 		</div>
 	</div>

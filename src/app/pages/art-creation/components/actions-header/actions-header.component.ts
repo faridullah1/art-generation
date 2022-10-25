@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HeaderAction, LayoutType } from 'src/app/pages/models';
 
@@ -9,6 +9,7 @@ import { HeaderAction, LayoutType } from 'src/app/pages/models';
   styleUrls: ['./actions-header.component.scss']
 })
 export class ActionsHeaderComponent {
+	@Input() showStatusFilter = false;
 	@Output() signal = new EventEmitter<HeaderAction>();
 
 	layout: LayoutType = 'List';
