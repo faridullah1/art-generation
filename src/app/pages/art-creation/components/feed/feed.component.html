@@ -88,9 +88,8 @@
 			</ng-template>
 		</ng-container>
 
-		<div class="no-record" *ngIf="creations.length === 0">
+		<div class="no-record" *ngIf="creations.length === 0 && !loading">
 			<p class="text">There's nothing here yet. Create something now!</p>
-			<button class="btn-create" (click)="navigetToCreate()">Create</button>
 		</div>
 
 		<ng-template #loader>
