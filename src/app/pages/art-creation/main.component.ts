@@ -25,7 +25,7 @@ export class ArtCreationComponent implements OnInit {
 	getAllCreations(): void {
 		this.loading = true;
 
-		this.apiService.get(`/creations?status=${this.status}`).subscribe({
+		this.apiService.get(`/creations/mine?status=${this.status}`).subscribe({
 			next: (resp) => {
 				this.creations = resp.data.creations;
 				this.loading = false;
