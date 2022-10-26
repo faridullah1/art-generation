@@ -13,6 +13,7 @@ import { ArtCreationModule } from './pages/art-creation/art-creation.module';
 import { AppComponent } from './app.component';
 
 import { AuthService } from './services/auth.service';
+import { AccountModule } from './pages/account/account.module';
 
 export function authAppInitializerFactory(authService: AuthService): () => Promise<void> {
 	return () => authService.runInitialLoginSequence();
@@ -35,6 +36,7 @@ export function authAppInitializerFactory(authService: AuthService): () => Promi
 		// Custom modules
 		LayoutModule,
 		ArtCreationModule,
+		AccountModule,
 		AuthModule
 	],
 	providers: [

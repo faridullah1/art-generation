@@ -11,7 +11,8 @@ export const config: AuthConfig = {
 	issuer: 'https://accounts.google.com',
 	scope: 'openid profile email',
 	redirectUri: 'http://localhost:4200',
-	strictDiscoveryDocumentValidation: false
+	strictDiscoveryDocumentValidation: false,
+	useSilentRefresh: false
 };
 
 @Injectable({
