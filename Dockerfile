@@ -6,7 +6,7 @@ RUN npm ci  --debug
 COPY . .
 RUN ng build
 EXPOSE 4200
-RUN chown -R node:node /usr/app/dist/
+RUN chown -R node:node /app/dist/
 
 # Run container as non-root (unprivileged) user
 # The node user is provided in the Node.js Alpine base image
