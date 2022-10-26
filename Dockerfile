@@ -4,7 +4,7 @@ COPY package.json package.json
 COPY package-lock.json package-lock.json
 RUN npm ci  --debug 
 COPY . .
-RUN ng build --prod
+RUN ng build
 EXPOSE 4200
 RUN chown -R node:node /usr/app/dist/
 
