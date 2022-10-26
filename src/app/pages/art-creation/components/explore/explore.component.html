@@ -18,7 +18,8 @@
 									<span class="name-desc">{{ creation.user.name }}</span>
 								</div>
 								<div class="info">
-									{{ creation.createdAt | date:'medium'}} <span *ngIf="followedByUsersIds.includes(creation.user.userId)">&nbsp;-&nbsp;Following</span>
+									{{ creation.createdAt | date:'medium'}} 
+									<span *ngIf="followedByUsersIds.includes(creation.user.userId)">&nbsp;-&nbsp;Following</span>
 								</div>
 							</div>
 						</div>
@@ -34,8 +35,10 @@
 					<div class="description-container">
 						<div class="like">
 							<div class="favourite">
-								<mat-icon>favorite_border</mat-icon>
-								<span>{{ creation.likes }}</span>
+								<button [disabled]="disableLikeBtn" mat-icon-button (click)="onLikeCreation(creation)">
+									<mat-icon>{{ isLiked(creation) ? 'favorite' : 'favorite_border' }}</mat-icon>
+								</button>
+								<span>{{ creation.creation_likes.length }}</span>
 							</div>
 						</div>
 
@@ -80,9 +83,12 @@
 
 						<div class="grid-actions">
 							<img src="./assets/images/avatar.jpg" alt="User" class="user-img">
+
 							<div class="fav">
-								<mat-icon>favorite_border</mat-icon>
-								<span>{{ creation.likes }}</span>
+								<mat-icon (click)="onLikeCreation(creation)">
+									{{ isLiked(creation) ? 'favorite' : 'favorite_border' }}
+								</mat-icon>
+								<span>{{ creation.creation_likes.length }}</span>
 							</div>
 
 							<div class="fav">

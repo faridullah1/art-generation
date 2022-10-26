@@ -28,6 +28,16 @@ export class ApiService {
 			.pipe(catchError((error) => this.handleError(error)));;
 	}
 
+	patch(slug: string, payload: any): Observable<any> {
+		return this.http.patch<any>(this.baseUrl + slug, payload, { headers: this.headers })
+			.pipe(catchError((error) => this.handleError(error)));;
+	}
+
+	delete(slug: string, payload: any): Observable<any> {
+		return this.http.delete<any>(this.baseUrl + slug, { headers: this.headers, body: payload })
+			.pipe(catchError((error) => this.handleError(error)));;
+	}
+
 	private handleError(err: any) {
 		if (err.status === 401) this.router.navigateByUrl('login');
 

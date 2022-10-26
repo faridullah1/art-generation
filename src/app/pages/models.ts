@@ -31,15 +31,25 @@ export interface Creation {
 	isPublished: boolean;
 	status: 'Default' | 'Published' | 'Archived';
 	description: string;
-	likes: number;
+	isLiked: boolean;
 	createdAt: string;
 	creation_comments: CreationComment[];
+	creation_likes: CreationLike[];
 	user: User;
+
 }
 
 export interface CreationComment {
 	commentId: number;
 	comment: string;
+	userId: number;
+	creationId: number;
+	dateCreated: string;
+	user: User;
+}
+
+export interface CreationLike {
+	id: number;
 	userId: number;
 	creationId: number;
 	dateCreated: string;
