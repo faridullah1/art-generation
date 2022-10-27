@@ -1,6 +1,7 @@
 {
 	"/api": {
-		"target": "https://talkart.io/api/",
-		"secure": true
+		"target": "https://talkart.io",
+		"secure": false,
+		"changeOrigin": true
 	}
 }
