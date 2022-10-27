@@ -9,6 +9,7 @@ import { PromptComponent } from './pages/art-creation/components/prompt/prompt.c
 import { FeedComponent } from './pages/art-creation/components/feed/feed.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SubscriptionComponent } from './pages/account/subscription/subscription.component';
+import { PricingComponent } from './pages/art-creation/components/pricing/pricing.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'my-creations', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
 	{ path: 'create/:prompt', component: PromptComponent },
 	{ path: 'explore', component: ExploreComponent },
 	{ path: 'subscription', component: SubscriptionComponent },
+	{ path: 'pricing', component: PricingComponent },
 
 	{ path: 'login', component: LoginComponent },
 ];

@@ -12,6 +12,7 @@ import { PromptComponent } from './components/prompt/prompt.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
 import { PublishCreationComponent } from './components/publish-creation/publish-creation.component';
+import { PricingComponent } from './components/pricing/pricing.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PublishCreationComponent } from './components/publish-creation/publish-
   		PromptComponent,
 		FeedComponent,
 		ActionsHeaderComponent,
- 		PublishCreationComponent
+ 		PublishCreationComponent,
+		PricingComponent
 	],
 	imports: [
 		CommonModule,
