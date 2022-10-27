@@ -76,3 +76,11 @@ export interface HeaderAction {
 	type: 'LayoutChange' | 'StatusChange' | 'Refresh';
 	value: any;
 }
+
+export interface Pricing {
+	planId: string;
+	title: string;
+	price: string;
+	coins: string;
+	benefits: string;
+}

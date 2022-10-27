@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfigService } from '@services/config.service';
-import { Creation, CreationLike, HeaderAction, LayoutType } from 'src/app/pages/models';
+import { Creation, CreationLike, HeaderAction, LayoutType, Pricing } from 'src/app/pages/models';
 import { ApiService } from 'src/app/services/api.service';
 
 
@@ -13,11 +13,11 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PricingComponent implements OnInit {
 
-
+	priceData : Pricing[] = []
 	constructor() 
 	{ }
-
 	ngOnInit(): void {
+
 	}
 
 }
