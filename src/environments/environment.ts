@@ -3,9 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  clientId: '601653797159-p2raa8mrfotcorb6jh3jd8sj4ab0c7jr.apps.googleusercontent.com',
-  baseURL: '/api',
+	production: false,
+	google_oidc_config: {
+		clientId: '601653797159-p2raa8mrfotcorb6jh3jd8sj4ab0c7jr.apps.googleusercontent.com',
+		issuer: 'https://accounts.google.com',
+		scope: 'openid profile email',
+		redirectUri: 'http://localhost:4200',
+		strictDiscoveryDocumentValidation: false,
+		useSilentRefresh: false,
+		logoutUrl: 'https://www.google.com/accounts/logout'
+	},
+	baseURL: '/api',
 };
 
 /*

@@ -6,19 +6,11 @@ import { BehaviorSubject, combineLatest, filter, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserProfile } from '../pages/models';
 
-export const config: AuthConfig = {
-	clientId: environment.clientId,
-	issuer: 'https://accounts.google.com',
-	scope: 'openid profile email',
-	redirectUri: 'http://localhost:4200',
-	strictDiscoveryDocumentValidation: false,
-	useSilentRefresh: false
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+	private authConfig: AuthConfig = environment.google_oidc_config;
 	userProfileSubject = new BehaviorSubject<any>(null);
 
 	private isAuthenticatedSubject$ = new BehaviorSubject<boolean>(false);
@@ -40,8 +32,8 @@ export class AuthService {
 	}
 
 	private init(): void {
-		this.oauthService.configure(config);
-		this.oauthService.logoutUrl = 'https://www.google.com/accounts/logout';
+		this.oauthService.configure(this.authConfig);
+		this.oauthService.logoutUrl = this.authConfig.logoutUrl;
 
 		this.listenToEvents();
 	

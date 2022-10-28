@@ -11,8 +11,6 @@ import { AuthService } from '@services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  	title = 'night-cafe-clone';
-
 	constructor(private apiService: ApiService,
 				private authService: AuthService,
 				private configService: ConfigService,

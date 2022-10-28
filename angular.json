@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "night-cafe-clone": {
+    "talk-art": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/night-cafe-clone",
+            "outputPath": "dist/talk-art",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "night-cafe-clone:build:production"
+              "browserTarget": "talk-art:build:production",
+              "disableHostCheck": false
             },
             "development": {
-              "browserTarget": "night-cafe-clone:build:development"
+              "browserTarget": "talk-art:build:development",
+              "disableHostCheck": false
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "night-cafe-clone:build"
+            "browserTarget": "talk-art:build"
           }
         },
         "test": {
