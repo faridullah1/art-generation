@@ -33,6 +33,11 @@ export class ToolbarComponent implements OnInit {
 		this.isLoggedIn ? this.authService.logout() : this.router.navigateByUrl('login');
 	}
 
+	onGotoSubscription(): void {
+		this.toggleProfileMenu = false;
+		this.router.navigateByUrl('subscription');
+	}
+
 	toggleMenu(ev: MouseEvent): void {
 		ev.stopPropagation();
 		

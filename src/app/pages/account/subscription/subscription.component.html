@@ -3,4 +3,46 @@
 		title="Manage Your Subscriptions" 
 		description="You don't have an active subscription. Choose a Talk Art PRO* plan now!">
 	</app-page-title>
+
+	<div class="pricing" *ngIf="!loading; else loader;">
+		<!-- <div class="pricing-header">
+			<button class="pricing-head-btn pro">Talk Art PRO</button>
+			<button class="pricing-head-btn pack">Credit PACKS</button>
+			<button class="pricing-head-btn pack">EARN CREDITS</button>
+		</div> -->
+
+		<app-page-title 
+			title="Get Talk Art PRO*" 
+			description="Go PRO for a monthly credit pack and a range of other perks">
+		</app-page-title>
+
+		<div class="card-container">
+			<div class="card" *ngFor="let plan of plans;">
+				<div class="recommend-container">
+					<div class="recommend" *ngIf="plan.isRecommended">RECOMMENDED FOR YOU</div>
+				</div>
+
+				<div class="package">
+					<h4>{{ plan.title }}</h4>
+					<span class="credits">💰 {{ plan.coins }} Credits</span>
+					<small>/month</small>
+					<span class="amnt">${{ plan.price }} USD 
+						<small>/month*</small>
+					</span>
+				</div>
+
+				<button class="btn-pro" [ngClass]="plan.isRecommended ? 'btn-plan-pro' : 'btn-plan-pro-outlined'" [class.pro]="plan.isRecommended">Go Pro</button>
+
+				<div class="details">
+					<span class="benefit" *ngFor="let rec of plan.benefits;">{{ rec }}</span>
+					<span class="soon">More perks coming soon</span>
+				</div>
+			</div>
+		</div>
+		<div class="agreement">*By subscribing to Talk Art PRO you agree to be bound by the Talk Art Terms of Service.</div>
+	</div>
+
+	<ng-template #loader>
+		<mat-spinner diameter="30"></mat-spinner>
+	</ng-template>
 </div>

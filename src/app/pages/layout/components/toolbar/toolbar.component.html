@@ -17,7 +17,7 @@
 	<div class="profile-menu" *ngIf="toggleProfileMenu">
 		<ul>
 			<li (click)="onLogin()">{{ isLoggedIn ? 'Log out' : 'Login' }}</li>
-			<li routerLink="subscription">Manage Subscription</li>
+			<li (click)="onGotoSubscription()">Manage Subscription</li>
 		</ul>
 	</div>
 

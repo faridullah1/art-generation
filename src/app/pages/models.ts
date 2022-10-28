@@ -77,10 +77,11 @@ export interface HeaderAction {
 	value: any;
 }
 
-export interface Pricing {
+export interface SubscriptionPlan {
 	planId: string;
 	title: string;
 	price: string;
 	coins: string;
-	benefits: string;
+	isRecommended: boolean;
+	benefits: string[];
 }
