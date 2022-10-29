@@ -14,7 +14,7 @@ export const environment = {
 		logoutUrl: 'https://www.google.com/accounts/logout'
 	},
 	baseURL: '/api',
-	appName: 'Talk Art in Production'
+	appName: 'Talk Art in Development'
 };
 
 /*
