@@ -31,7 +31,7 @@
 					</span>
 				</div>
 
-				<button class="btn-pro" [ngClass]="plan.isRecommended ? 'btn-plan-pro' : 'btn-plan-pro-outlined'" [class.pro]="plan.isRecommended">Go Pro</button>
+				<button class="btn-pro" [ngClass]="plan.isRecommended ? 'btn-plan-pro' : 'btn-plan-pro-outlined'">Go Pro</button>
 
 				<div class="details">
 					<span class="benefit" *ngFor="let rec of plan.benefits;">{{ rec }}</span>

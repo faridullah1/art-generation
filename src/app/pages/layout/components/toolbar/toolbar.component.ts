@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserProfile } from 'src/app/pages/models';
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+	title: string = environment.appName;
 	profile!: UserProfile;
 	isLoggedIn: boolean = false;
 	toggleProfileMenu = false;
