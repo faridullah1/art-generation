@@ -1,0 +1,91 @@
+<ng-container *ngIf="layout === 'List'; else gridView;">
+	<div class="list-card">
+		<div class="detail-header">
+			<div class="user">
+				<img [src]="creation.user.picture || '/assets/images/avatar.jpg'" alt="User Image" class="user-img">
+				<div class="user-details">
+					<div class="name">
+						<span class="name-desc">{{ creation.user.name }}</span>
+					</div>
+					<div class="info">
+						{{ creation.createdAt | date:'medium'}} 
+						<span *ngIf="followedByUsersIds.includes(creation.user.userId) || !showBtnFollow">&nbsp;-&nbsp;Following</span>
+					</div>
+				</div>
+			</div>
+	
+			<ng-container *ngIf="showBtnFollow">
+				<div *ngIf="!followedByUsersIds.includes(creation.user.userId) && creation.user.email !== userProfile?.info?.email"
+					class="model-info">
+					<button class="btn-follow" [disabled]="disableFollowBtn" (click)="onFollowUser()">Follow</button>
+				</div>
+			</ng-container>
+		</div>
+	
+		<img [src]="creation.outputImage" alt="Creation" class="image">
+	
+		<div class="description-container">
+			<div class="like">
+				<div class="favourite">
+					<button [disabled]="disableLikeBtn" mat-icon-button (click)="onLikeCreation()">
+						<mat-icon>{{ isLiked() ? 'favorite' : 'favorite_border' }}</mat-icon>
+					</button>
+					<span>{{ creation.creation_likes.length }}</span>
+				</div>
+			</div>
+	
+			<h3 class="title">{{ creation.prompt }}</h3>
+	
+			<p class="description">{{ creation.description }}</p>
+	
+			<div class="d-flex flex-col">
+				<div class="comments" *ngFor="let comment of creation.creation_comments">
+					<div class="comments-name">{{ comment.user.name }}</div>
+					<div class="comments-desc">{{ comment.comment }}</div>
+				</div>
+			</div>
+	
+			<!-- <div class="read-all">Read all Captions</div> -->
+	
+			<div class="write-comment">
+				<img [src]="creation.user.picture || '/assets/images/avatar.jpg'" alt="User Image" class="user-img">
+				<textarea class="search-input" matInput type="text" autocomplete="off" placeholder="Leave a comment" [formControl]="commentFC"></textarea>
+			</div>
+	
+			<div class="submit-sec">
+				<button class="btn-submit" (click)="onSubmitComment(creation)"
+					[disabled]="commentFC.invalid || disableSubmitBtn">
+					<span *ngIf="!disableSubmitBtn">Submit</span>
+	
+					<mat-progress-spinner
+						*ngIf="disableSubmitBtn"
+						[diameter]="24"
+						[mode]="'indeterminate'">
+					</mat-progress-spinner>
+				</button>
+			</div>
+		</div>
+	</div>
+</ng-container>
+
+<ng-template #gridView>
+	<div class="grid-card">
+		<img [src]="creation.outputImage" alt="Creation" class="image">
+
+		<div class="grid-actions">
+			<img src="./assets/images/avatar.jpg" alt="User" class="user-img">
+
+			<div class="fav">
+				<mat-icon (click)="onLikeCreation()">
+					{{ isLiked() ? 'favorite' : 'favorite_border' }}
+				</mat-icon>
+				<span>{{ creation.creation_likes.length }}</span>
+			</div>
+
+			<div class="fav">
+				<mat-icon> message</mat-icon>
+				{{ creation.creation_comments.length }}
+			</div>
+		</div>
+	</div>
+</ng-template>

@@ -12,6 +12,7 @@ import { PromptComponent } from './components/prompt/prompt.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
 import { PublishCreationComponent } from './components/publish-creation/publish-creation.component';
+import { CreationCardComponent } from './components/creation-card/creation-card.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PublishCreationComponent } from './components/publish-creation/publish-
   		PromptComponent,
 		FeedComponent,
 		ActionsHeaderComponent,
- 		PublishCreationComponent
+ 		PublishCreationComponent,
+   		CreationCardComponent
 	],
 	imports: [
 		CommonModule,

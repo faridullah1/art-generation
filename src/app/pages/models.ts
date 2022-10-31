@@ -36,7 +36,6 @@ export interface Creation {
 	creation_comments: CreationComment[];
 	creation_likes: CreationLike[];
 	user: User;
-
 }
 
 export interface CreationComment {
@@ -60,6 +59,7 @@ export interface User {
 	userId: number;
 	name: string;
 	email: string;
+	picture: string;
 	dateCreated: string;
 }
 
