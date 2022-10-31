@@ -10,5 +10,5 @@ export const environment = {
 		logoutUrl: 'https://www.google.com/accounts/logout'
 	},
 	baseURL: 'https://talkart.io/api',
-	appName: 'Talk Art in Productio'
+	appName: 'Talk Art'
 };
