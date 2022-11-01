@@ -2,7 +2,7 @@
 	<app-page-title title="My Creations"></app-page-title>
 	
 	<div class="creations" [ngClass]="layout === 'Grid' ? 'grid-container' : 'list-container'">
-		<app-actions-header [showStatusFilter]="true" (signal)="onHeaderAction($event)"></app-actions-header>
+		<app-actions-header style="width: 100%" [showStatusFilter]="true" (signal)="onHeaderAction($event)"></app-actions-header>
 
 		<ng-container *ngIf="!loading; else loader">
 			<ng-container *ngIf="layout === 'List'; else gridView;">

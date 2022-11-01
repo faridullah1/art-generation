@@ -4,7 +4,7 @@
 	padding-bottom: 4px;
 	display: flex;
 	justify-content: space-between;
-	width: 901px;
+	width: 100%;
 
 	.left {
 		display: flex;
@@ -18,17 +18,5 @@
 
 	.selected {
 		color: var(--color-secondary);
-	}
-}
-
-@media screen and (max-width: 760px) {
-	.actions{
-		width: 500px;
-	}
-}
-
-@media screen and (min-width:761px) and (max-width: 1000px) {
-	.actions {
-		width: 800px;
 	}
 }

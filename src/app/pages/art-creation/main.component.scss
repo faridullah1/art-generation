@@ -96,7 +96,6 @@
 				width: 25rem;
 				height: auto;
 				margin-right: 2rem;
-				background-color: red;
 	
 				.image {
 					width: 100%;
@@ -129,6 +128,20 @@
 	
 }
 
+@media screen and (max-width: 1400px) and (max-width: 1600px){
+	.grid-card {
+		min-width: 30%;
+	}
+	
+}
+
+@media screen and (max-width: 1000px) and (max-width: 1400px){
+	.grid-card {
+		min-width: 46%;
+	}
+	
+}
+
 @media screen and (max-width: 880px) and (max-width: 1000px){
 	.grid-card {
 		min-width: 34rem;
@@ -138,14 +151,14 @@
 
 @media screen and (max-width: 790px) and (max-width: 880px){
 	.grid-card {
-		min-width: 30rem;
+		min-width: 46%;
 	}
 	
 }
 
 @media screen and (max-width: 700px) and (max-width: 790px){
 	.grid-card {
-		min-width: 27rem;
+		min-width: 44%rem;
 	}
 	
 }
@@ -157,9 +170,9 @@
 	
 }
 
-@media screen and (max-width: 500px) and (max-width: 600px){
+
+@media screen and (max-width: 600px){
 	.grid-card {
 		min-width: 100%;
 	}
-	
 }

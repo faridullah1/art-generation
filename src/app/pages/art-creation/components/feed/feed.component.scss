@@ -1,5 +1,7 @@
 .container {
-	width: 100%;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 	
 	.creations {
 		display: flex;
@@ -10,8 +12,6 @@
 		padding-top: 0;
 		padding-bottom: 0;
 		margin-bottom: 1rem;
-
-		min-width: 100%;
 
 		.icon {
 			margin-right: 1rem;
@@ -24,10 +24,9 @@
 			box-shadow: rgb(0 0 0 / 10%) 0px 3px 12px;
 
 			display: flex;
-			// width: 100%;
+			width: 100%;
 			flex-direction: column;
 			max-width: 901px;
-			width: 60%;
 			min-width: 420px;
 
 			.detail-header {
@@ -272,18 +271,18 @@
 		.grid-view {
 			display: flex;
 			flex-wrap: wrap;
-			width: 90%;
 			gap: 5px;
+			width: 100%;
 
 			.grid-card {
 				height: auto;
 				position: relative;
-				width: 24%;
-				min-width: 300px;
+				width: 25rem;
 	
 				.image {
 					width: 100%;
-					height: 335px;
+					// height: 335px;
+					object-fit: cover;
 				}
 
 				@media screen and (max-width: 600px) {
@@ -334,4 +333,46 @@
 		max-width: 901px;
 	}
 
+}
+
+@media screen and (max-width: 1300px) and (max-width: 1600px){
+	.grid-card {
+		min-width: 23%;
+	}
+}
+
+@media screen and (max-width: 1000px) and (max-width: 1300px){
+	.grid-card {
+		min-width: 32%;
+	}
+}
+
+@media screen and (max-width: 880px) and (max-width: 1000px){
+	.grid-card {
+		min-width: 34rem;
+	}
+}
+
+@media screen and (max-width: 790px) and (max-width: 880px){
+	.grid-card {
+		min-width: 46%;
+	}
+}
+
+@media screen and (max-width: 700px) and (max-width: 790px){
+	.grid-card {
+		min-width: 44%;
+	}
+}
+
+@media screen and (max-width: 600px) and (max-width: 700px){
+	.grid-card {
+		min-width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.grid-card {
+		min-width: 100%;
+	}
 }
