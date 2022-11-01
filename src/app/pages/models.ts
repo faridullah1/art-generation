@@ -1,6 +1,12 @@
 export type LayoutType = 'Grid' | 'List';
 export type CreationStatus = 'Default' | 'Published' | 'Archived';
 
+export interface GenericApiResponse {
+	status: 'success' | 'fail' | 'error';
+	data: any;
+	totalRecords: number;
+}
+
 export interface ArtModel {
 	name: string;
 	title: string;

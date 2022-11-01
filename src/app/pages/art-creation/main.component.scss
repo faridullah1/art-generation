@@ -114,6 +114,14 @@
 		width: 94%;
 		max-width: 901px;
 	}
+
+	.btn {
+		background-color: var(--color-primary);
+		color: #fff;
+		padding: .5rem 1.5rem;
+		margin: 2rem 0;
+		cursor: pointer;
+	}
 }
 
 @media screen and (max-width: 760px) {
@@ -125,41 +133,34 @@
 	.image {
 		min-width: 100%;
 	}
-
-	
 }
 
 @media screen and (max-width: 880px) and (max-width: 1000px){
 	.grid-card {
 		min-width: 34rem;
 	}
-	
 }
 
 @media screen and (max-width: 790px) and (max-width: 880px){
 	.grid-card {
 		min-width: 30rem;
 	}
-	
 }
 
 @media screen and (max-width: 700px) and (max-width: 790px){
 	.grid-card {
 		min-width: 27rem;
 	}
-	
 }
 
 @media screen and (max-width: 600px) and (max-width: 700px){
 	.grid-card {
 		min-width: 100%;
 	}
-	
 }
 
 @media screen and (max-width: 500px) and (max-width: 600px){
 	.grid-card {
 		min-width: 100%;
 	}
-	
 }

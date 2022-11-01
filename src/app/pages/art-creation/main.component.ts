@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { Creation, CreationStatus, HeaderAction, LayoutType } from '../models';
+import { Creation, CreationStatus, GenericApiResponse, HeaderAction, LayoutType } from '../models';
 import { MatDialog } from '@angular/material/dialog';
 import { PublishCreationComponent } from './components/publish-creation/publish-creation.component';
 
@@ -17,6 +17,11 @@ export class ArtCreationComponent implements OnInit {
 	status: CreationStatus = 'Default';
 	statuses = ['Default', 'Published', 'Archived'];
 	loading = false;
+	loadMore = false;
+
+	page = 1;
+	limit = 10;
+	total = 0;
 
 	constructor(private apiService: ApiService,
 				private dialog: MatDialog,
@@ -27,15 +32,18 @@ export class ArtCreationComponent implements OnInit {
 		this.getAllCreations();
 	}
 
-	getAllCreations(): void {
-		this.loading = true;
+	getAllCreations(loadMore = false): void {
+		loadMore ? this.loadMore = true : this.loading = true;
 
-		this.apiService.get(`/creations/mine?status=${this.status}`).subscribe({
-			next: (resp) => {
-				this.creations = resp.data.creations;
-				this.loading = false;
+		this.apiService.get(`/creations/mine?status=${this.status}&page=${this.page}&limit=${this.limit}`).subscribe({
+			next: (resp: GenericApiResponse) => 
+			{
+				this.creations = [...this.creations, ...resp.data.creations];
+
+				loadMore ? this.loadMore = false : this.loading = false;
+				this.total = resp.totalRecords;
 			},
-			error: () => this.loading = false
+			error: () => loadMore ? this.loadMore = false : this.loading = false
 		});
 	}
 
@@ -74,5 +82,10 @@ export class ArtCreationComponent implements OnInit {
 
 	navigetToCreate(): void {
 		this.router.navigateByUrl('create');
+	}
+
+	onLoadMore(): void {
+		this.page ++;
+		this.getAllCreations(true);
 	}
 }
